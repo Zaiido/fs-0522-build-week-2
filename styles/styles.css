@@ -157,7 +157,24 @@ body {
     left: 1px;
     color: white
 }
-
+.dropdown-menu {
+    border: 5px;
+}
+.dropdown-item:hover {
+    background-color: var(--grey-color);
+}
+.dropdown-item svg {
+    fill: white;
+}
+.bi-caret-up {
+    display: none;
+}
+.dropdown-event:focus .bi-caret-down {
+    display: none;
+}
+.dropdown-event:focus .bi-caret-up{
+    display: inline-block;
+}
 /* Navigation bottom */
 
 #navbar-bottom a {
