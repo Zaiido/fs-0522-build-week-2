@@ -16,6 +16,8 @@ body {
     rgba(18, 18, 18, 1) 22%
   );
   color: var(--clr-text);
+  margin-top: -905px;
+  margin-left: 270px;
 }
 
 /* album section */
