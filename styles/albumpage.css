@@ -24,7 +24,7 @@ body {
 
 /* top row album info */
 .top-album {
-  padding: 9rem 0 1rem 2rem;
+  padding: 8rem 0 1rem 2rem;
   background: rgb(89, 28, 72);
   background: linear-gradient(
     0deg,
@@ -218,4 +218,10 @@ body {
     height: 232px;
     width: 232px;
   }
+}
+
+/* added for side bar */
+
+#nav-left {
+  background-color: black;
 }
