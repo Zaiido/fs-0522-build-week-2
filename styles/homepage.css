@@ -122,6 +122,11 @@ h4+span:hover {
     cursor: pointer;
 }
 
+.row a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .card {
     background-color: #181818;
     max-width: 200px;
@@ -188,4 +193,11 @@ h4+span:hover {
 .card:hover .play-button {
     transform: translateY(-50%);
     opacity: 1;
+}
+
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
