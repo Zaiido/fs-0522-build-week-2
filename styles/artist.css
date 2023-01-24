@@ -31,15 +31,22 @@ body {
 .image-wrapper {
     position: relative;
     /* object-fit: cover; */
-    max-height: 80vh;
+    height: 90vh;
+    transition: 0.5s;
 
 }
 .image-wrapper img {
     object-fit: fill;
-    object-position: center;
-    max-height: 80vh;
+    object-position: top;
+    height: 90vh;
     /* object-fit: scale-down; */
+    transition: 0.5s ease-in;
+    width: 100%;
 
+
+}
+.opacity {
+    opacity: 0;
 }
 .text-inner {
     position: absolute;
@@ -59,6 +66,19 @@ body {
     fill: blue;
 
 }
+
+/* .arrow-down-toggle {
+    position: absolute;
+    bottom: 55vh;
+left: 55vw;
+scale: 3.0;
+}   
+.bi-arrow-down {    
+    color: black;
+    background-color: #1ED760;
+    border-radius: 50%;
+
+} */
 .btn-following {
     border: solid 2px white;
     color: white;
@@ -74,8 +94,8 @@ body {
 }
 #songs-content {
 
-    background: rgb(3,22,25);
-    background: linear-gradient(0deg, rgba(3,22,25,1) 0%, rgba(25,47,47,1) 39%, rgba(89,89,85,1) 81%, rgba(114,114,109,1) 91%, rgba(131,131,124,0.9753151260504201) 97%);
+    background: rgb(25,25,25);
+    background: linear-gradient(0deg, rgba(25,25,25,1) 0%, rgba(26,26,26,1) 39%, rgba(64,64,64,1) 79%, rgba(89,89,85,1) 90%, rgba(82,82,82,1) 96%);
     width: 100vw;
     margin-bottom: 3.5em;
     font-size: 0.9rem;
@@ -112,7 +132,13 @@ body {
     color: var(--grey-color);
 }
 
-
+.icon-container {
+    height: 32px;
+    width: 32px;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 50%;
+    fill: white;
+}
 
 
 
@@ -139,4 +165,8 @@ body {
 .play-button svg {
     fill: black;
     opacity: 1;
+}
+
+.nav-item svg {
+    fill: var(--grey-color);
 }

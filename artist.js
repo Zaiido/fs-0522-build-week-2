@@ -26,6 +26,10 @@ const renderArtist = async (artist) => {
   containerBg.innerHTML += `  
             <img src="${artist.picture_big}" alt="">
   `;
+  const artistName = document.getElementById("artist-name");
+  artistName.innerText = `${artist.name}`;
+  const artistNameSmall = document.getElementById("artist-by-name");
+  artistNameSmall.innerText = `${artist.name} Best of`;
   const artistPickImg = document.getElementById("album-photo");
   artistPickImg.innerHTML = "";
   artistPickImg.innerHTML += `
@@ -37,8 +41,12 @@ const renderSongs = async (songs) => {
   containerList.innerHTML = "";
   for (const iterator of songs) {
     containerList.innerHTML += `
-    <li class="d-flex justify-content-between"><span> <img class="p-1" src="${iterator.album.cover}" height="48" width="48" alt="">
-    ${iterator.album.title}</span><span class="grey">${iterator.duration}s</span></li>`;
+    <li class="d-flex justify-content-between"><span> <img class="p-1" src="${
+      iterator.album.cover
+    }" height="48" width="48" alt="">
+    ${iterator.album.title}</span><span class="grey">${parseInt(
+      iterator.duration / 60
+    )}m${iterator.duration % 60}s</span></li>`;
   }
 };
 //   await songs.forEach((singleSong) => {
@@ -51,3 +59,18 @@ window.onload = () => {
   getDataArtist();
   getDataSongs();
 };
+
+const imgChange = function () {
+  const img = document.querySelector(".image-wrapper img");
+  const imgContainer = document.querySelector(".image-wrapper");
+  if (window.pageYOffset > 300) {
+    console.log("it went there");
+    console.log(img);
+    img.classList.add("opacity");
+    imgContainer.style.backgroundColor = "#525252";
+  } else if (window.pageYOffset < 300) {
+    img.classList.remove("opacity");
+  }
+};
+
+window.addEventListener("scroll", imgChange);
