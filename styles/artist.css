@@ -1,0 +1,142 @@
+@font-face {
+    font-family: "Circular-Std-Book";
+    src: url("../font/CircularStd-Book.otf") format("opentype");
+}
+h1,h2,h3,h4,h5 {
+    font-family: "Circular-Std-Book";
+    font-weight: bold;
+}
+:root {
+    --grey-color: #C5BFBF;
+}
+
+
+body {
+    color: white;
+    font-family: "Circular-Std-Book";
+    background-color: #121212;
+    overflow-x: hidden;
+}
+
+#main {
+    width: 100%;
+    /* background-image: url(https://www.udiscovermusic.com/wp-content/uploads/2019/03/Queen-II-album-cover-820.jpg);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 70vh; */
+    /* background-size: cover; */
+    /* overflow-y: auto; */
+    margin-bottom: 1.5em;
+}
+.image-wrapper {
+    position: relative;
+    /* object-fit: cover; */
+    max-height: 80vh;
+
+}
+.image-wrapper img {
+    object-fit: fill;
+    object-position: center;
+    max-height: 80vh;
+    /* object-fit: scale-down; */
+
+}
+.text-inner {
+    position: absolute;
+    top: 3em;
+    left: 20em;
+}
+.monthly-listeners {
+    font-weight: bold;
+}
+/* .details-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+} */
+
+.tick {
+    fill: blue;
+
+}
+.btn-following {
+    border: solid 2px white;
+    color: white;
+    border-radius: 6px;
+}
+.btn-following:hover {
+
+    color: white;
+
+}
+.svg-dots {
+    fill: white;
+}
+#songs-content {
+
+    background: rgb(3,22,25);
+    background: linear-gradient(0deg, rgba(3,22,25,1) 0%, rgba(25,47,47,1) 39%, rgba(89,89,85,1) 81%, rgba(114,114,109,1) 91%, rgba(131,131,124,0.9753151260504201) 97%);
+    width: 100vw;
+    margin-bottom: 3.5em;
+    font-size: 0.9rem;
+}
+
+#songs-content .icons {
+    padding-top: 3em;
+    padding-left: 3em;
+    display: flex;
+    align-items: center;
+}
+#artist-list-songs {
+    list-style-type:decimal;
+}
+
+
+#artist-list-songs li:hover {
+    background-color: #989090;
+}
+#artist-list-songs li > span:hover {
+    scale: 1.05;
+}
+.see-more:hover {
+    color: white;
+}
+/* .popular-releases{
+    padding-bottom: 6rem;
+} */
+
+.posted-by img {
+    border-radius: 50%;
+}
+.grey {
+    color: var(--grey-color);
+}
+
+
+
+
+
+
+
+.play-button {
+    fill: #1ED760;
+    background-color: #1ED760;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.play-button:focus {
+    box-shadow: none;
+}
+
+.play-button:hover {
+    background-color: #1FDF64;
+    scale: 1.05;
+}
+
+.play-button svg {
+    fill: black;
+    opacity: 1;
+}
