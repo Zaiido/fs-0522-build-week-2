@@ -1,0 +1,172 @@
+@font-face {
+    font-family: "Circular-Std-Book";
+    src: url("../font/CircularStd-Book.otf") format("opentype");
+}
+h1,h2,h3,h4,h5 {
+    font-family: "Circular-Std-Book";
+    font-weight: bold;
+}
+:root {
+    --grey-color: #C5BFBF;
+}
+
+
+body {
+    color: white;
+    font-family: "Circular-Std-Book";
+    background-color: #121212;
+    overflow-x: hidden;
+}
+
+#main {
+    width: 100%;
+    /* background-image: url(https://www.udiscovermusic.com/wp-content/uploads/2019/03/Queen-II-album-cover-820.jpg);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: 100% 70vh; */
+    /* background-size: cover; */
+    /* overflow-y: auto; */
+    margin-bottom: 1.5em;
+}
+.image-wrapper {
+    position: relative;
+    /* object-fit: cover; */
+    height: 90vh;
+    transition: 0.5s;
+
+}
+.image-wrapper img {
+    object-fit: fill;
+    object-position: top;
+    height: 90vh;
+    /* object-fit: scale-down; */
+    transition: 0.5s ease-in;
+    width: 100%;
+
+
+}
+.opacity {
+    opacity: 0;
+}
+.text-inner {
+    position: absolute;
+    top: 3em;
+    left: 20em;
+}
+.monthly-listeners {
+    font-weight: bold;
+}
+/* .details-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+} */
+
+.tick {
+    fill: blue;
+
+}
+
+/* .arrow-down-toggle {
+    position: absolute;
+    bottom: 55vh;
+left: 55vw;
+scale: 3.0;
+}   
+.bi-arrow-down {    
+    color: black;
+    background-color: #1ED760;
+    border-radius: 50%;
+
+} */
+.btn-following {
+    border: solid 2px white;
+    color: white;
+    border-radius: 6px;
+}
+.btn-following:hover {
+
+    color: white;
+
+}
+.svg-dots {
+    fill: white;
+}
+#songs-content {
+
+    background: rgb(25,25,25);
+    background: linear-gradient(0deg, rgba(25,25,25,1) 0%, rgba(26,26,26,1) 39%, rgba(64,64,64,1) 79%, rgba(89,89,85,1) 90%, rgba(82,82,82,1) 96%);
+    width: 100vw;
+    margin-bottom: 3.5em;
+    font-size: 0.9rem;
+}
+
+#songs-content .icons {
+    padding-top: 3em;
+    padding-left: 3em;
+    display: flex;
+    align-items: center;
+}
+#artist-list-songs {
+    list-style-type:decimal;
+}
+
+
+#artist-list-songs li:hover {
+    background-color: #989090;
+}
+#artist-list-songs li > span:hover {
+    scale: 1.05;
+}
+.see-more:hover {
+    color: white;
+}
+/* .popular-releases{
+    padding-bottom: 6rem;
+} */
+
+.posted-by img {
+    border-radius: 50%;
+}
+.grey {
+    color: var(--grey-color);
+}
+
+.icon-container {
+    height: 32px;
+    width: 32px;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 50%;
+    fill: white;
+}
+
+
+
+
+
+.play-button {
+    fill: #1ED760;
+    background-color: #1ED760;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.play-button:focus {
+    box-shadow: none;
+}
+
+.play-button:hover {
+    background-color: #1FDF64;
+    scale: 1.05;
+}
+
+.play-button svg {
+    fill: black;
+    opacity: 1;
+}
+
+.nav-item svg {
+    fill: var(--grey-color);
+}
