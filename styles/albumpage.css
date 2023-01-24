@@ -16,6 +16,7 @@ body {
     rgba(18, 18, 18, 1) 22%
   );
   color: var(--clr-text);
+  overflow-x: hidden;
 }
 
 /* album section */
@@ -110,10 +111,6 @@ main.container-fluid.album-container {
   width: 1rem;
 }
 
-/* .bi-play-fill {
-  display: none;
-} */
-
 .title-col {
   margin-left: 1rem;
 }
@@ -143,7 +140,8 @@ main.container-fluid.album-container {
 
 /* more albums */
 .more-by-artist {
-  margin-inline: 3rem;
+  margin-left: 3rem;
+  margin-right: 4rem;
 }
 
 #seeDiscography {
@@ -160,8 +158,6 @@ main.container-fluid.album-container {
 .more-albums {
   margin-top: 2rem;
   overflow: hidden;
-  flex-wrap: nowrap;
-  display: flex;
 }
 
 .more-by-artist .card {
@@ -171,7 +167,7 @@ main.container-fluid.album-container {
 
 /* footer */
 .footer {
-  margin: 5rem 2rem 4rem 2rem;
+  margin: 5rem 4rem 4rem 2rem;
 }
 
 .footer-top {
