@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "Circular-Std-Book";
+    src: url("../font/CircularStd-Book.otf") format("opentype");
+}
+
+body {
+    font-family: "Circular-Std-Book";
+}
+
 :root {
     --grey-color: #C5BFBF;
 }
