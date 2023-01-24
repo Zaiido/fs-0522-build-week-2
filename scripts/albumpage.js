@@ -23,7 +23,6 @@ const displayAlbum = async (album) => {
     // display top part
     const topAlbumInfoNode = document.querySelector("#top-album-info");
     topAlbumInfoNode.innerHTML = `
-        <div class="row top-album" id="top-album-info">
             <div class="album-cover-image">
                 <img
                     src="${album.cover}"
@@ -44,8 +43,7 @@ const displayAlbum = async (album) => {
                     <span>· ${album.tracks.data.length} songs, </span>
                     <span>${Math.floor(album.duration / 60)} min</span>
                 </div>
-            </div>
-    </div>`;
+            </div>`;
     // display songs
     const songTableNode = document.querySelector("#songTable");
     let songArray = album.tracks.data;
