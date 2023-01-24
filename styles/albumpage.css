@@ -139,7 +139,7 @@ main.container-fluid.album-container {
 }
 
 /* more albums */
-.more-by-artist {
+.more-albums {
   margin-left: 3rem;
   margin-right: 4rem;
 }
@@ -150,9 +150,18 @@ main.container-fluid.album-container {
   font-size: 13px;
 }
 
-.more-by-artist .card-img-top {
+.more-albums .card-img-top {
   object-fit: cover;
   width: 100%;
+}
+
+.more-albums .card-body {
+  padding: 0.7rem;
+}
+
+.more-albums .album-title {
+  max-height: 6rem;
+  overflow: hidden;
 }
 
 .more-albums {
@@ -160,7 +169,7 @@ main.container-fluid.album-container {
   overflow: hidden;
 }
 
-.more-by-artist .card {
+.more-albums .card {
   background-color: var(--clr-dark);
   width: 80px;
 }

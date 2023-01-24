@@ -1,17 +1,44 @@
-const url = "https://striveschool-api.herokuapp.com/api/deezer/album/75621062";
+const url = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+
+const searchUrl = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
 const par = new URLSearchParams(location.search);
 const id = par.get("id");
 
+const moreAlbumsId = [];
+const artists = [
+  "eminem",
+  "rihanna",
+  "simple plan",
+  "beyonce",
+  "metallica",
+  "sick puppies",
+  "chopin",
+];
+
 window.onload = async () => {
-  getAlbum();
+  await getAlbum();
+  artists.forEach((artist) => {
+    getAlbumId(artist);
+  });
+};
+
+const getAlbumId = async (artist) => {
+  try {
+    let response = await fetch(searchUrl + artist);
+    let album = await response.json();
+    let albumId = await album.data[0].album.id;
+    console.log(albumId);
+    getMoreAlbums(albumId);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getAlbum = async () => {
   try {
-    let response = await fetch(url);
+    let response = await fetch(url + id);
     let album = await response.json();
-    console.log(album);
     displayAlbum(album);
   } catch (error) {
     console.log(error);
@@ -60,6 +87,42 @@ const displayAlbum = async (album) => {
             <td>${song.duration} sec</td>
         </tr>`;
     }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getMoreAlbums = async (albumId) => {
+  try {
+    let response = await fetch(url + albumId);
+    let album = await response.json();
+    displayMoreAlbums(album);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const displayMoreAlbums = (album) => {
+  try {
+    const moreAlbumsNode = document.querySelector("#moreAlbums");
+    moreAlbumsNode.innerHTML += `
+        <div class="card col">
+            <a href="./album-page.html?id=${album.id}">
+                <img
+                    src="${album.cover}"
+                    alt="Album Cover"
+                    class="card-img-top"
+                />
+            </a>
+            <div class="card-body">
+                <a href="#"
+                    <p class="card-text album-title">${album.artist.name}</p>
+                </a>
+                <a href="#">
+                    <p class="card-text">${album.title}<br/><span>${album.release_date}</span></p>
+                </a>
+            </div>
+        </div>`;
   } catch (error) {
     console.log(error);
   }
