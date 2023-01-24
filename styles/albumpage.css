@@ -1,0 +1,221 @@
+:root {
+  --clr-light-red: #7e2d68;
+  --clr-medium-red: #511c41;
+  --clr-dark-red: #401735;
+  --clr-text: #f3f2f2;
+  --clr-grey-text: #8d888f;
+  --clr-green: #18b54d;
+  --clr-dark: #121212;
+}
+
+body {
+  background: rgb(126, 45, 104, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(126, 45, 104, 1) 0%,
+    rgba(18, 18, 18, 1) 22%
+  );
+  color: var(--clr-text);
+  margin-top: -905px;
+  margin-left: 270px;
+}
+
+/* album section */
+
+/* top row album info */
+.top-album {
+  padding: 9rem 0 1rem 2rem;
+  background: rgb(89, 28, 72);
+  background: linear-gradient(
+    0deg,
+    rgba(89, 28, 72, 1) 0%,
+    rgba(168, 59, 137) 100%
+  );
+}
+
+.album-cover-image {
+  height: 192px;
+  width: 192px;
+}
+
+.album-cover-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.artist-img {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.album-infos {
+  align-self: end;
+  margin-left: 1.75rem;
+}
+
+.album-infos h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* album buttons */
+.top-album-buttons {
+  padding: 1rem 0 1rem 2rem;
+  align-items: center;
+}
+
+.top-album-buttons .bi-play-circle-fill {
+  font-size: 3.5rem;
+  color: var(--clr-green);
+}
+
+.top-album-buttons .bi-heart {
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.top-album-buttons .bi-three-dots {
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+/* Song list table*/
+.song-list {
+  margin-inline: 2rem;
+}
+
+.table thead th {
+  border-bottom: 0.5px solid #8d888f74;
+}
+
+.table th,
+.table td {
+  color: var(--clr-text);
+  border-top: none;
+}
+
+.number-col {
+  width: 1rem;
+}
+
+/* .bi-play-fill {
+  display: none;
+} */
+
+.title-col {
+  margin-left: 1rem;
+}
+
+.heart-col {
+  width: 3rem;
+  margin-left: auto;
+}
+
+.length-col {
+  width: 6rem;
+}
+
+.copy-rights {
+  margin: 2rem 0 5rem 2rem;
+}
+
+.copy-rights h5 {
+  font-size: 13px;
+  font-weight: 200;
+}
+
+.copy-rights p {
+  font-size: 11px;
+  font-weight: 200;
+}
+
+/* more albums */
+.more-by-artist {
+  margin-inline: 3rem;
+}
+
+#seeDiscography {
+  margin-left: auto;
+  color: var(--clr-text);
+  font-size: 13px;
+}
+
+.more-by-artist .card-img-top {
+  object-fit: cover;
+  width: 100%;
+}
+
+.more-albums {
+  margin-top: 2rem;
+}
+
+.more-by-artist .card {
+  background-color: var(--clr-dark);
+}
+
+/* footer */
+.footer {
+  margin: 5rem 2rem 4rem 2rem;
+}
+
+.footer-top {
+  margin-bottom: 2.5rem;
+  margin-left: -1.5rem;
+}
+
+.footer .links {
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+}
+
+.footer .links .link {
+  color: var(--clr-grey-text);
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  margin-left: auto;
+}
+
+.social-links .link {
+  color: var(--clr-text);
+  background-color: #252525;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--clr-grey-text);
+  padding-top: 3rem;
+}
+
+.footer-bottom-link {
+  color: var(--clr-grey-text);
+  margin-right: 15px;
+}
+
+.spotifyCopyRight {
+  margin-left: auto;
+  margin-right: 15px;
+  color: var(--clr-grey-text);
+}
+
+/* screen size */
+@media (min-width: 1540px) {
+  .album-infos h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .album-cover-image {
+    height: 232px;
+    width: 232px;
+  }
+}
