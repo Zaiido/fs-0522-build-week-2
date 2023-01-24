@@ -107,6 +107,11 @@ main.container-fluid.album-container {
   border-top: none;
 }
 
+.table tbody tr:hover {
+  background-color: rgba(128, 128, 128, 0.47);
+  cursor: pointer;
+}
+
 .number-col {
   width: 1rem;
 }
@@ -144,6 +149,10 @@ main.container-fluid.album-container {
   margin-right: 4rem;
 }
 
+.more-albums-title {
+  margin-inline: 1rem;
+}
+
 #seeDiscography {
   margin-left: auto;
   color: var(--clr-text);
@@ -172,6 +181,14 @@ main.container-fluid.album-container {
 .more-albums .card {
   background-color: var(--clr-dark);
   width: 80px;
+}
+
+.more-albums .card a {
+  color: var(--clr-grey-text);
+}
+
+.more-albums .card a:hover {
+  color: white;
 }
 
 /* footer */

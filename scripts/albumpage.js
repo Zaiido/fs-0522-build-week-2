@@ -80,7 +80,7 @@ const displayAlbum = async (album) => {
         <tr>
             <td>
                 <span class="song-number">${i + 1}</span>
-                <i class="bi bi-play-fill"></i>
+                <i class="bi bi-play-fill play-song-icon"></i>
             </td>
             <td>${song.title}<br/><span>${song.artist.name}</span></td>
             <td><i class="bi bi-heart"></i></td>
@@ -118,7 +118,7 @@ const displayMoreAlbums = (album) => {
                 <a href="#"
                     <p class="card-text album-title">${album.artist.name}</p>
                 </a>
-                <a href="#">
+                <a href="./album-page.html?id=${album.id}">
                     <p class="card-text">${album.title}<br/><span>${album.release_date}</span></p>
                 </a>
             </div>
