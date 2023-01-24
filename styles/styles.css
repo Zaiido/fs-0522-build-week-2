@@ -213,22 +213,26 @@
     border: solid 2px white;
 }
 
-#navbar-bottom .item,
-.nav-icon {
-    filter: invert(76%) sepia(33%) saturate(25%) hue-rotate(333deg) brightness(97%) contrast(90%);
+/* MUSIC PLAYER */
+
+.play {
+    padding: 3px 7px;
 }
 
-#navbar-bottom .item:hover {
-    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(3deg) brightness(103%) contrast(101%);
+#navbar-bottom .play svg {
+    fill: black;
+    opacity: 1;
 }
 
-.nav-icon:hover {
-    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(3deg) brightness(103%) contrast(101%);
+#navbar-bottom svg {
+    fill: white;
 }
 
-#navbar-bottom .item-2:hover {
-    filter: invert(76%) sepia(33%) saturate(25%) hue-rotate(333deg) brightness(240%) contrast(90%);
+#navbar-bottom svg:hover {
+    opacity: 1;
 }
+
+
 
 #navbar-bottom .play {
     background-color: white;

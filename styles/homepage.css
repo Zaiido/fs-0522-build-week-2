@@ -10,15 +10,6 @@ body {
     overflow-x: hidden;
 }
 
-.sidebar {
-    background-color: black;
-    height: 600px;
-    width: 300px;
-    color: white;
-    position: sticky;
-    top: 0;
-}
-
 
 .background-effect {
     position: absolute;
