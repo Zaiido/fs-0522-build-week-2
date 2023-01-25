@@ -251,7 +251,7 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #121212;
+    display: none;
 }
 
 /* Handle */
@@ -271,7 +271,7 @@ ul::-webkit-scrollbar {
 }
 
 ul::-webkit-scrollbar-track {
-    background: #000000;
+    display: none;
 }
 
 ul::-webkit-scrollbar-thumb {
