@@ -236,3 +236,26 @@ a.dropdown-item:hover {
     background-color: transparent;
     color: white;
 }
+
+
+/* CARDS RESPONSIVENESS */
+
+
+@media (max-width: 767px) {
+
+    .row:not(:first-of-type) .col-12:last-child,
+    .row:not(:first-of-type) .col-12:nth-child(5),
+    .row:not(:first-of-type) .col-12:nth-child(4),
+    .row:not(:first-of-type) .col-12:nth-child(3) {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+    .row:not(:first-of-type) .col-12:last-child,
+    .row:not(:first-of-type) .col-12:nth-child(5),
+    .row:not(:first-of-type) .col-12:nth-child(4) {
+        display: none;
+    }
+}
