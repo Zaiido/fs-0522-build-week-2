@@ -261,9 +261,12 @@
         <section class="album">
           <div class="row top-album" id="top-album-info"></div>
           <div class="row top-album-buttons">
-            <span class="top-play-button">
-              <i class="bi bi-play-circle-fill"></i>
-            </span>
+            <div class="top-play-button-container">
+              <span class="top-play-button">
+                <i class="bi bi-play-circle-fill"></i>
+              </span>
+            </div>
+
             <span class="top-heart-button">
               <i class="bi bi-heart"></i>
             </span>
@@ -290,19 +293,19 @@
             <p>© Copyright by a music studio somewhere on earth.</p>
           </div>
         </section>
-        <section class="more-albums">
+        <section class="more-albums-container">
           <div class="row more-albums-title">
             <h4>More albums</h4>
             <a href="#" id="seeDiscography">SEE DISCOGRAPHY</a>
           </div>
           <div
-            class="row row-cols-2 row-cols-xs-3 row-cols-sm-4 row-cols-md-5 row-cols-lg-6 row-cols-xl-7 more-albums"
+            class="row row-cols-3 row-col-sm-2 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 no-gutters no-wrap more-albums"
             id="moreAlbums"
           ></div>
         </section>
-        <section class="footer">
+        <section class="album-footer container-fluid">
           <div class="footer-top row">
-            <div class="col links">
+            <div class="col-3 links">
               <h6>Company</h6>
               <a href="#" class="link">Impressum</a>
               <a href="#" class="link">About</a>
@@ -310,7 +313,7 @@
               <a href="#" class="link">For the Records</a>
             </div>
 
-            <div class="col links">
+            <div class="col-3 links">
               <h6>Communities</h6>
               <a href="#" class="link">For Artists</a>
               <a href="#" class="link">Developers</a>
@@ -318,13 +321,13 @@
               <a href="#" class="link">Investors</a>
               <a href="#" class="link">Vendors</a>
             </div>
-            <div class="col links">
+            <div class="col-3 links">
               <h6>Useful links</h6>
               <a href="#" class="link">Support</a>
               <a href="#" class="link">Free Mobile App</a>
               <a href="#" class="link">Verträge hier kündigen</a>
             </div>
-            <div class="social-links">
+            <div class="col-3 social-links">
               <a href="#" class="link"><i class="bi bi-instagram"></i></a>
               <a href="#" class="link"><i class="bi bi-twitter"></i></a>
               <a href="#" class="link"><i class="bi bi-facebook"></i></a>

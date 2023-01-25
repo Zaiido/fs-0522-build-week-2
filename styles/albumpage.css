@@ -22,23 +22,21 @@ body {
 /* album section */
 
 main.container-fluid.album-container {
-  /* margin-top: -1000px;
-  margin-left: 270px;
-  margin-bottom: 100px; */
-  margin: -1000px 0 100px 270px;
-  width: 88%;
+  margin: -1000px 0 100px 280px;
+  width: auto;
 }
 
 /* top row album info */
 .top-album {
-  padding: 7rem 0 1rem 2rem;
-  margin-right: 0;
+  padding: 10rem 0 1rem 2rem;
+  margin-right: -35px;
   background: rgb(89, 28, 72);
   background: linear-gradient(
     0deg,
     rgba(89, 28, 72, 1) 0%,
     rgba(168, 59, 137) 100%
   );
+  width: auto;
 }
 
 .album-cover-image {
@@ -63,6 +61,7 @@ main.container-fluid.album-container {
 .album-infos {
   align-self: end;
   margin-left: 1.75rem;
+  width: 75%;
 }
 
 .album-infos h1 {
@@ -74,11 +73,17 @@ main.container-fluid.album-container {
 .top-album-buttons {
   padding: 1rem 0 1rem 2rem;
   align-items: center;
+  height: 9rem;
 }
 
 .top-album-buttons .bi-play-circle-fill {
   font-size: 3.5rem;
   color: var(--clr-green);
+}
+
+.top-album-buttons .bi-play-circle-fill:hover {
+  font-size: 3.8rem;
+  margin-right: -0.3rem;
 }
 
 .top-album-buttons .bi-heart {
@@ -91,10 +96,15 @@ main.container-fluid.album-container {
   margin-left: 2rem;
 }
 
+.top-album-buttons .bi-three-dots:hover,
+.top-album-buttons .bi-heart:hover {
+  color: white;
+}
+
 /* Song list table*/
 .song-list {
-  margin-left: 2rem;
-  margin-right: 4rem;
+  margin-left: 1.5rem;
+  margin-right: -1;
 }
 
 .table thead th {
@@ -126,7 +136,8 @@ main.container-fluid.album-container {
 }
 
 .length-col {
-  width: 6rem;
+  width: 8rem;
+  text-align: center;
 }
 
 .copy-rights {
@@ -144,13 +155,9 @@ main.container-fluid.album-container {
 }
 
 /* more albums */
-.more-albums {
-  margin-left: 3rem;
-  margin-right: 4rem;
-}
 
-.more-albums-title {
-  margin-inline: 1rem;
+.more-albums-container {
+  margin-left: 2rem;
 }
 
 #seeDiscography {
@@ -166,10 +173,10 @@ main.container-fluid.album-container {
 
 .more-albums .card-body {
   padding: 0.7rem;
+  max-height: 6rem;
 }
 
 .more-albums .album-title {
-  max-height: 6rem;
   overflow: hidden;
 }
 
@@ -179,8 +186,13 @@ main.container-fluid.album-container {
 }
 
 .more-albums .card {
-  background-color: var(--clr-dark);
-  width: 80px;
+  background-color: #171717;
+  margin-right: 10px;
+}
+
+.no-wrap {
+  overflow-wrap: normal;
+  flex-wrap: nowrap;
 }
 
 .more-albums .card a {
@@ -192,22 +204,24 @@ main.container-fluid.album-container {
 }
 
 /* footer */
-.footer {
-  margin: 5rem 4rem 4rem 2rem;
+.album-footer {
+  margin-left: 0;
+  padding-top: 2rem;
+  padding-left: 2rem;
 }
 
-.footer-top {
+.album-footer-top {
   margin-bottom: 2.5rem;
   margin-left: -1.5rem;
 }
 
-.footer .links {
+.album-footer .links {
   display: flex;
   flex-direction: column;
   max-width: 20%;
 }
 
-.footer .links .link {
+.album-footer .links .link {
   color: var(--clr-grey-text);
   margin-bottom: 1rem;
 }

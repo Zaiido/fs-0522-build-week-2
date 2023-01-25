@@ -13,7 +13,18 @@ const artists = [
   "beyonce",
   "metallica",
   "sick puppies",
-  "chopin",
+  "Miley Cyrus",
+  "Dua Lipa",
+  "Shakira",
+  "Pink Floyd",
+  "Soja",
+  "Manuel Turizo",
+  "poor mans poison",
+  "lady gaga",
+  "demi lovato",
+  "fall out boys",
+  "tones and i",
+  "Malinda",
 ];
 
 window.onload = async () => {
@@ -29,7 +40,7 @@ const getAlbumId = async (artist) => {
     let album = await response.json();
     let albumId = await album.data[0].album.id;
     console.log(albumId);
-    getMoreAlbums(albumId);
+    await getMoreAlbums(albumId);
   } catch (error) {
     console.log(error);
   }
@@ -68,7 +79,9 @@ const displayAlbum = async (album) => {
                     <span>${album.artist.name} </span>
                     <span>· ${album.release_date} </span>
                     <span>· ${album.tracks.data.length} songs, </span>
-                    <span>${Math.floor(album.duration / 60)} min</span>
+                    <span>${Math.floor(
+                      album.duration / 60 / 60
+                    )} h ${Math.floor(album.duration % 60)} min</span>
                 </div>
             </div>`;
     // display songs
@@ -84,7 +97,9 @@ const displayAlbum = async (album) => {
             </td>
             <td>${song.title}<br/><span>${song.artist.name}</span></td>
             <td><i class="bi bi-heart"></i></td>
-            <td>${song.duration} sec</td>
+            <td>${Math.floor(song.duration / 60)} min ${
+        song.duration % 60
+      } sec</td>
         </tr>`;
     }
   } catch (error) {
