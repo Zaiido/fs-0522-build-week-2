@@ -20,12 +20,6 @@ body {
 
 #main {
     width: 100%;
-    /* background-image: url(https://www.udiscovermusic.com/wp-content/uploads/2019/03/Queen-II-album-cover-820.jpg);
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-size: 100% 70vh; */
-    /* background-size: cover; */
-    /* overflow-y: auto; */
     margin-bottom: 1.5em;
 }
 .image-wrapper {
@@ -56,29 +50,14 @@ body {
 .monthly-listeners {
     font-weight: bold;
 }
-/* .details-wrapper {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-} */
+
 
 .tick {
     fill: blue;
 
 }
 
-/* .arrow-down-toggle {
-    position: absolute;
-    bottom: 55vh;
-left: 55vw;
-scale: 3.0;
-}   
-.bi-arrow-down {    
-    color: black;
-    background-color: #1ED760;
-    border-radius: 50%;
 
-} */
 .btn-following {
     border: solid 2px white;
     color: white;
@@ -121,9 +100,7 @@ scale: 3.0;
 .see-more:hover {
     color: white;
 }
-/* .popular-releases{
-    padding-bottom: 6rem;
-} */
+
 
 .posted-by img {
     border-radius: 50%;
