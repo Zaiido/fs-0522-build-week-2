@@ -74,11 +74,7 @@ h4:hover {
   cursor: pointer;
 }
 
-.row:first-of-type > div {
-  min-width: 250px;
-}
-
-.menu-container {
+/* .menu-container {
   background-color: hsla(0, 0%, 100%, 0.1);
   border-radius: 4px;
   cursor: pointer;
@@ -103,9 +99,9 @@ h4:hover {
   object-fit: cover;
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
-}
+} */
 
-h4 + span {
+/* h4 + span {
   color: rgb(179, 179, 179);
   font-size: 12px;
   letter-spacing: 0.5px;
@@ -114,7 +110,7 @@ h4 + span {
 h4 + span:hover {
   text-decoration: underline;
   cursor: pointer;
-}
+} */
 
 .row a {
   text-decoration: none;
@@ -187,7 +183,7 @@ h4 + span:hover {
   opacity: 1;
 }
 
-.truncate {
+/* .truncate {
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -196,7 +192,7 @@ h4 + span:hover {
 
 .card a:nth-of-type(2):hover {
   text-decoration: underline;
-}
+} */
 
 /* PROFILE DROPDOWN MENU */
 
@@ -237,7 +233,7 @@ a.dropdown-item:hover {
 
 /* CARDS RESPONSIVENESS */
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .row:not(:first-of-type) .col-12:last-child,
   .row:not(:first-of-type) .col-12:nth-child(5),
   .row:not(:first-of-type) .col-12:nth-child(4),
@@ -252,7 +248,7 @@ a.dropdown-item:hover {
   .row:not(:first-of-type) .col-12:nth-child(4) {
     display: none;
   }
-}
+} */
 
 /* added */
 .main-container {
@@ -283,4 +279,9 @@ a.dropdown-item:hover {
 
 #search-input:focus-visible {
   outline: none;
+}
+
+#search-container {
+  background-color: pink;
+  width: auto;
 }
