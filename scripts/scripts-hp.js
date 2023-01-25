@@ -79,7 +79,7 @@ const renderSongs = (song) => {
                             </svg>
                         </button>
                         <h5 class="card-title truncate">${song.album.title}</h5>
-                        <a href="artist.html?id=${song.artist.id}"> 
+                        <a href="artist.html?name=${song.artist.name}"> 
                             <p class="card-text truncate">${song.artist.name}</p>
                         </a>
                     </div>
