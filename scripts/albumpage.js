@@ -149,3 +149,17 @@ const displayMoreAlbums = (album) => {
     console.log(error);
   }
 };
+
+window.onscroll = () => {
+  scrollNavbar();
+};
+
+scrollNavbar = () => {
+  const headerNode = document.getElementsByTagName("header")[0];
+
+  if (document.documentElement.scrollTop > 400) {
+    headerNode.classList.add("bg-color");
+  } else {
+    headerNode.classList.remove("bg-color");
+  }
+};

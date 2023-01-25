@@ -295,3 +295,49 @@ main.container-fluid.album-container {
     width: 65%;
   }
 }
+
+/* top nav bar */
+header {
+  background-color: transparent;
+  position: sticky;
+  top: 1rem;
+  z-index: 2;
+}
+
+.icon-container {
+  height: 32px;
+  width: 32px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+}
+
+svg {
+  opacity: 0.6;
+  fill: white;
+}
+
+.profile {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 23px;
+  column-gap: 8px;
+  padding: 0.1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.profile .icon-container {
+  background-color: #535353;
+}
+
+.profile svg {
+  opacity: 1;
+}
+
+.profile:hover {
+  background-color: #282828;
+  cursor: pointer;
+}
+
+.bg-color {
+  background-color: var(--clr-medium-red);
+}
