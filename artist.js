@@ -113,7 +113,6 @@ const imgChange = function () {
     img.classList.remove("opacity");
   }
 };
-
 let playState = "play";
 const ifPlay = () => {
   const audio = document.querySelector("audio");
@@ -131,7 +130,6 @@ const ifPlay = () => {
     stopContainer.classList.add("d-none");
   }
 };
-
 // let seconds = 0;
 const playDefaultEvent = () => {
   const PlayIconContainer = document.getElementById("play");
