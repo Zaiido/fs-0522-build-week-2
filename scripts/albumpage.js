@@ -77,15 +77,14 @@ const displayAlbum = async (album) => {
                         class="artist-img"
                     />
                     <span>
-                        <a href="./artist.html?id=${album.artist.id}">${
-      album.artist.name
-    }</a>
+                        <a href="./artist.html?id=${album.artist.id}">${album.artist.name
+      }</a>
                     </span>
                     <span>· ${album.release_date} </span>
                     <span>· ${album.tracks.data.length} songs, </span>
                     <span>${Math.floor(
-                      album.duration / 60 / 60
-                    )} h ${Math.floor(album.duration % 60)} min</span>
+        album.duration / 60 / 60
+      )} h ${Math.floor(album.duration % 60)} min</span>
                 </div>
             </div>`;
     // display songs
@@ -100,13 +99,11 @@ const displayAlbum = async (album) => {
                 <span class="song-number">${i + 1}</span>
                 <i class="bi bi-play-fill play-song-icon"></i>
             </td>
-            <td>${song.title}<br/><span><a href="./artist.html?id=${
-        song.artist.id
-      }">${song.artist.name}</a></span></td>
+            <td>${song.title}<br/><span><a href="./artist.html?id=${song.artist.id
+        }">${song.artist.name}</a></span></td>
             <td><i class="bi bi-heart"></i></td>
-            <td>${Math.floor(song.duration / 60)} min ${
-        song.duration % 60
-      } sec</td>
+            <td>${Math.floor(song.duration / 60)} min ${song.duration % 60
+        } sec</td>
         </tr>`;
     }
   } catch (error) {
