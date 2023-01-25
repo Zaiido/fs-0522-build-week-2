@@ -99,7 +99,7 @@ const displayAlbum = async (album) => {
                 <span class="song-number">${i + 1}</span>
                 <i class="bi bi-play-fill play-song-icon"></i>
             </td>
-            <td>${song.title}<br/><span><a href="./artist.html?id=${song.artist.id
+            <td>${song.title}<br/><span><a href="./artist.html?name=${song.artist.name
         }">${song.artist.name}</a></span></td>
             <td><i class="bi bi-heart"></i></td>
             <td>${Math.floor(song.duration / 60)} min ${song.duration % 60
@@ -135,7 +135,7 @@ const displayMoreAlbums = (album) => {
                 />
             </a>
             <div class="card-body px-0 mb-3">
-                <a href="./artist.html?id=${album.artist.id}"
+                <a href="./artist.html?name=${album.artist.name}"
                     <p class="card-text album-title">${album.artist.name}</p>
                 </a>
                 <a href="./album-page.html?id=${album.id}">
