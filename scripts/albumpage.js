@@ -76,7 +76,11 @@ const displayAlbum = async (album) => {
                         alt="Image of ${album.artist.name}"
                         class="artist-img"
                     />
-                    <span>${album.artist.name} </span>
+                    <span>
+                        <a href="./artist.html?id=${album.artist.id}">${
+      album.artist.name
+    }</a>
+                    </span>
                     <span>· ${album.release_date} </span>
                     <span>· ${album.tracks.data.length} songs, </span>
                     <span>${Math.floor(
@@ -87,6 +91,7 @@ const displayAlbum = async (album) => {
     // display songs
     const songTableNode = document.querySelector("#songTable");
     let songArray = album.tracks.data;
+    console.log(songArray[2]);
     for (let i = 0; i < songArray.length; i++) {
       let song = songArray[i];
       songTableNode.innerHTML += `
@@ -95,7 +100,9 @@ const displayAlbum = async (album) => {
                 <span class="song-number">${i + 1}</span>
                 <i class="bi bi-play-fill play-song-icon"></i>
             </td>
-            <td>${song.title}<br/><span>${song.artist.name}</span></td>
+            <td>${song.title}<br/><span><a href="./artist.html?id=${
+        song.artist.id
+      }">${song.artist.name}</a></span></td>
             <td><i class="bi bi-heart"></i></td>
             <td>${Math.floor(song.duration / 60)} min ${
         song.duration % 60
@@ -130,7 +137,7 @@ const displayMoreAlbums = (album) => {
                 />
             </a>
             <div class="card-body">
-                <a href="#"
+                <a href="./artist.html?id=${album.artist.id}"
                     <p class="card-text album-title">${album.artist.name}</p>
                 </a>
                 <a href="./album-page.html?id=${album.id}">

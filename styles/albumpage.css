@@ -3,7 +3,7 @@
   --clr-medium-red: #511c41;
   --clr-dark-red: #401735;
   --clr-text: #f3f2f2;
-  --clr-grey-text: #8d888f;
+  --clr-grey-text: #908d91;
   --clr-green: #18b54d;
   --clr-dark: #121212;
 }
@@ -17,6 +17,14 @@ body {
   );
   color: var(--clr-text);
   overflow-x: hidden;
+}
+
+a {
+  color: var(--clr-grey-text);
+}
+
+a:hover {
+  color: white;
 }
 
 /* album section */
@@ -61,12 +69,16 @@ main.container-fluid.album-container {
 .album-infos {
   align-self: end;
   margin-left: 1.75rem;
-  width: 75%;
+  width: 70%;
 }
 
 .album-infos h1 {
   font-size: 2rem;
   font-weight: bold;
+}
+
+.album-infos a {
+  color: var(--clr-text);
 }
 
 /* album buttons */
@@ -86,14 +98,11 @@ main.container-fluid.album-container {
   margin-right: -0.3rem;
 }
 
+.top-album-buttons .bi-three-dots,
 .top-album-buttons .bi-heart {
   font-size: 2rem;
   margin-left: 2rem;
-}
-
-.top-album-buttons .bi-three-dots {
-  font-size: 2rem;
-  margin-left: 2rem;
+  color: var(--clr-grey-text);
 }
 
 .top-album-buttons .bi-three-dots:hover,
@@ -113,12 +122,12 @@ main.container-fluid.album-container {
 
 .table th,
 .table td {
-  color: var(--clr-text);
+  color: var(--clr-grey-text);
   border-top: none;
 }
 
 .table tbody tr:hover {
-  background-color: rgba(128, 128, 128, 0.47);
+  background-color: rgba(255, 255, 255, 0.137);
   cursor: pointer;
 }
 
@@ -183,6 +192,7 @@ main.container-fluid.album-container {
 .more-albums {
   margin-top: 2rem;
   overflow: hidden;
+  padding-right: 2rem;
 }
 
 .more-albums .card {
@@ -261,9 +271,27 @@ main.container-fluid.album-container {
   }
 }
 
+@media (max-width: 1350px) {
+  .album-infos h1 {
+    font-size: 2rem;
+  }
+}
+
 @media (min-width: 1280px) {
   .album-cover-image {
     height: 232px;
     width: 232px;
+  }
+}
+
+@media (max-width: 1093px) {
+  .album-infos h1 {
+    overflow: hidden;
+    height: 5rem;
+    width: 80%;
+  }
+  .album-infos {
+    overflow: hidden;
+    width: 65%;
   }
 }
