@@ -10,11 +10,9 @@
 
 body {
   background: rgb(126, 45, 104, 1);
-  background: linear-gradient(
-    180deg,
-    rgba(126, 45, 104, 1) 0%,
-    rgba(18, 18, 18, 1) 22%
-  );
+  background: linear-gradient(180deg,
+      rgba(126, 45, 104, 1) 0%,
+      rgba(18, 18, 18, 1) 22%);
   color: var(--clr-text);
   overflow-x: hidden;
 }
@@ -32,6 +30,7 @@ a:hover {
 main.container-fluid.album-container {
   width: auto;
 }
+
 .container,
 .container-fluid,
 .container-lg,
@@ -48,11 +47,9 @@ main.container-fluid.album-container {
   margin-top: -5.2rem;
   padding: 5rem 0 1rem 2rem;
   background: rgb(89, 28, 72);
-  background: linear-gradient(
-    0deg,
-    rgba(89, 28, 72, 1) 0%,
-    rgba(168, 59, 137) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(89, 28, 72, 1) 0%,
+      rgba(168, 59, 137) 100%);
 }
 
 .album-cover-image {
@@ -298,6 +295,7 @@ main.container-fluid.album-container {
     height: 5rem;
     width: 80%;
   }
+
   .album-infos {
     overflow: hidden;
     width: 65%;
@@ -358,6 +356,7 @@ svg {
   from {
     background-color: #511c4100;
   }
+
   to {
     background-color: #511c41;
   }
