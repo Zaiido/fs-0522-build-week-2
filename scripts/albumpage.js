@@ -157,7 +157,7 @@ window.onscroll = () => {
 scrollNavbar = () => {
   const headerNode = document.getElementsByTagName("header")[0];
 
-  if (document.documentElement.scrollTop > 400) {
+  if (document.documentElement.scrollTop > 200) {
     headerNode.classList.add("bg-color");
   } else {
     headerNode.classList.remove("bg-color");

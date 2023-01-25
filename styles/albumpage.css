@@ -30,21 +30,29 @@ a:hover {
 /* album section */
 
 main.container-fluid.album-container {
-  margin: -1000px 0 100px 280px;
   width: auto;
+}
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: auto;
+  padding: 0;
+  margin: 0;
 }
 
 /* top row album info */
 .top-album {
-  padding: 10rem 0 1rem 2rem;
-  margin-right: -35px;
+  margin-top: -5.2rem;
+  padding: 5rem 0 1rem 2rem;
   background: rgb(89, 28, 72);
   background: linear-gradient(
     0deg,
     rgba(89, 28, 72, 1) 0%,
     rgba(168, 59, 137) 100%
   );
-  width: auto;
 }
 
 .album-cover-image {
@@ -300,8 +308,10 @@ main.container-fluid.album-container {
 header {
   background-color: transparent;
   position: sticky;
-  top: 1rem;
+  top: 0;
   z-index: 2;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .icon-container {
@@ -339,5 +349,16 @@ svg {
 }
 
 .bg-color {
-  background-color: var(--clr-medium-red);
+  background-color: #511c41;
+  animation-name: backgroundChange;
+  animation-duration: 1s;
+}
+
+@keyframes backgroundChange {
+  from {
+    background-color: #511c4100;
+  }
+  to {
+    background-color: #511c41;
+  }
 }
