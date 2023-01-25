@@ -195,3 +195,7 @@ h4+span:hover {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.card a:nth-of-type(2):hover {
+    text-decoration: underline;
+}
