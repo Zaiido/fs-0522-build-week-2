@@ -74,7 +74,7 @@ h4:hover {
 }
 
 .row:first-of-type>div {
-    min-width: fit-content;
+    min-width: 250px;
 }
 
 .menu-container {
