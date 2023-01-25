@@ -7,7 +7,6 @@ let artistsArray = ["eminem", "queen", "metallica", "beyonce", "marc antony", "w
 window.onload = async () => {
     try {
 
-        toggleProfileDropdown()
 
 
         for (let artist of artistsArray) {
@@ -102,33 +101,15 @@ const getSongs = async (query) => {
 }
 
 
-const toggleProfileDropdown = () => {
-    let profileNode = document.querySelector(".profile")
-    profileNode.addEventListener("click", () => {
-        let svgNode = document.querySelector(".down-arrow")
-        let dropdownMenu = document.querySelector(".dropdown-menu")
-        if (svgNode.hasAttribute("transform")) {
-            svgNode.removeAttribute("transform")
-            dropdownMenu.classList.replace("d-block", "d-none")
-        }
-        else {
-            svgNode.setAttribute("transform", "rotate(180)")
-            dropdownMenu.classList.replace("d-none", "d-block")
-        }
-    })
-    bodyToggleProfileDropdown()
-}
+const scrollNavbar = () => {
+    const headerNode = document.querySelector("header");
+    if (window.scrollY >= 100) {
+        headerNode.classList.add("bg-color");
+    } else {
+        headerNode.classList.remove("bg-color");
+    }
+};
 
-const bodyToggleProfileDropdown = () => {
-    let sectionNode = document.querySelector(".main-container").querySelector("section:nth-of-type(1)");
-
-    sectionNode.addEventListener("click", () => {
-
-        let svgNode = document.querySelector(".down-arrow")
-        let dropdownMenu = document.querySelector(".dropdown-menu")
-        if (svgNode.hasAttribute("transform")) {
-            svgNode.removeAttribute("transform")
-            dropdownMenu.classList.replace("d-block", "d-none")
-        }
-    })
-}
+window.onscroll = () => {
+    scrollNavbar();
+};

@@ -14,7 +14,7 @@ body {
       rgba(126, 45, 104, 1) 0%,
       rgba(18, 18, 18, 1) 22%);
   color: var(--clr-text);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 a {
@@ -27,23 +27,13 @@ a:hover {
 
 /* album section */
 
-main.container-fluid.album-container {
-  width: auto;
-}
-
-.container,
-.container-fluid,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl {
-  width: auto;
-  padding: 0;
-  margin: 0;
+main.album-container {
+  width: 100vw;
 }
 
 /* top row album info */
 .top-album {
+  display: flex;
   margin-top: -5.2rem;
   padding: 5rem 0 1rem 2rem;
   background: rgb(89, 28, 72);
@@ -88,6 +78,7 @@ main.container-fluid.album-container {
 
 /* album buttons */
 .top-album-buttons {
+  display: flex;
   padding: 1rem 0 1rem 2rem;
   align-items: center;
   height: 9rem;
@@ -118,7 +109,6 @@ main.container-fluid.album-container {
 /* Song list table*/
 .song-list {
   margin-left: 1.5rem;
-  margin-right: -1;
 }
 
 .table thead th {
@@ -171,7 +161,7 @@ main.container-fluid.album-container {
 /* more albums */
 
 .more-albums-container {
-  margin-left: 2rem;
+  padding-inline: 2rem;
 }
 
 #seeDiscography {
@@ -360,4 +350,9 @@ svg {
   to {
     background-color: #511c41;
   }
+}
+
+
+.dropdown-menu {
+  margin-top: -15px;
 }
