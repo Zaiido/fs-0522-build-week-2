@@ -86,17 +86,8 @@ body {
     display: flex;
     align-items: center;
 }
-#artist-list-songs {
-    list-style-type:decimal;
-}
 
 
-#artist-list-songs li:hover {
-    background-color: #989090;
-}
-#artist-list-songs li > span:hover {
-    scale: 1.05;
-}
 .see-more:hover {
     color: white;
 }
@@ -147,3 +138,65 @@ body {
 .nav-item svg {
     fill: var(--grey-color);
 }
+
+table a {
+    text-decoration: none;
+    color: var(--grey-color);
+}
+table a:hover {
+    color: white
+}
+
+tr:hover {
+    cursor: pointer;
+    background-color: #9890907b;
+    scale: 1.05;
+
+
+}
+
+
+/* #artist-list-songs li:hover {
+    background-color: #989090;
+}
+#artist-list-songs li > span:hover {
+    scale: 1.05;
+} */
+#stop {
+    border-radius: 50%;
+    padding: 3.5px;
+    padding-inline: 7px;
+}
+#stop:hover {
+    scale: 1.05;
+}
+#stop svg {
+    fill: black;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #0000008c;
+  }
+  /* audio::-webkit-media-controls-mute-button {
+
+
+  } */
+
+  audio::-webkit-media-controls-play-button {
+    /* background-color: white;
+    border: none;
+    padding: none;
+    border-radius: 50%; */
+    display: none;
+
+  }
+  audio::-webkit-media-controls-play-button:hover {
+   scale: 1.05;
+
+  }
+  audio::-webkit-media-controls-timeline {
+    background-color:  #1ed760;
+    border-radius: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
