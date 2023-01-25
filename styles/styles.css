@@ -66,6 +66,8 @@ body {
 
 #navbar-playlist {
     overflow-y: auto;
+    position: relative;
+    left: -10%;
 }
 
 #navbar-playlist a {
@@ -317,6 +319,17 @@ ul::-webkit-scrollbar-thumb:hover {
 
 .album-details div:hover {
     text-decoration: underline;
+}
+
+#nav-left hr:nth-of-type(2) {
+    width: 85%;
+    border: none;
+    border-bottom: 1px rgba(136, 136, 136, 0.419) solid;
+}
+
+#nav-left ul:last-of-type a>li {
+    font-size: 14px;
+
 }
 
 /* responsivness */

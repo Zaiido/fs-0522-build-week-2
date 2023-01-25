@@ -35,7 +35,6 @@ window.onload = async () => {
 
     for (let i = 0; i < 18; i++) {
         renderSongs(allSongsArray[i])
-        renderPlaylist(allSongsArray[i])
     }
 
 
@@ -44,7 +43,7 @@ window.onload = async () => {
 
 
 const renderSongs = (song) => {
-    // console.log(song)
+    console.log(song.album.id)
     let rowNodes = document.querySelectorAll(".row:not(:first-of-type)");
     let row;
 
@@ -57,7 +56,7 @@ const renderSongs = (song) => {
     else {
         row = rowNodes[2]
     }
-
+    console.log(song.album.id)
     row.innerHTML += ` <div class="col-12 col-sm-6 col-md-4 col-lg-2">
             <a href="album-page.html?id=${song.album.id}">
                 <div class="card">
@@ -74,19 +73,13 @@ const renderSongs = (song) => {
                             </svg>
                         </button>
                         <h5 class="card-title truncate">${song.album.title}</h5>
-                        <p class="card-text truncate">${song.artist.name}</p>
+                        <a href="artist.html?id=${song.artist.id}"> 
+                            <p class="card-text truncate">${song.artist.name}</p>
+                        </a>
                     </div>
                 </div>
             </a>
         </div>`
-}
-
-
-const renderPlaylist = (song) => {
-    let ulNode = document.querySelector("#navbar-playlist")
-    ulNode.innerHTML += `<a href="album-page.html?id=${song.album.id}">
-    <li class="truncate">${song.album.title}</li>
-</a>`
 }
 
 
