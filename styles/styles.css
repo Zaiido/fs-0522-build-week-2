@@ -339,3 +339,47 @@ ul::-webkit-scrollbar-thumb:hover {
         font-size: 0.8rem;
     }
 }
+
+
+
+.dropdown-menu {
+    display: block;
+    background-color: #282828;
+    right: 0;
+    left: auto;
+    margin-right: 2.5rem;
+    padding-inline: 10px;
+}
+
+.dropdown-menu a {
+    color: white;
+    font-size: 15px;
+}
+
+.dropdown-menu svg {
+    opacity: 1;
+    margin-left: 10px;
+}
+
+.dropdown-menu hr {
+    border: none;
+    border-bottom: 1px rgba(136, 136, 136, 0.419) solid;
+}
+
+a.dropdown-item:hover {
+    color: white;
+    background-color: #e9ecef2d;
+    border-radius: 2px;
+}
+
+.dropdown-item:focus {
+    background-color: transparent;
+    color: white;
+}
+
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

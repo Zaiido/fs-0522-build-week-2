@@ -63,7 +63,7 @@ const displayAlbum = async (album) => {
     topAlbumInfoNode.innerHTML = `
             <div class="album-cover-image">
                 <img
-                    src="${album.cover}"
+                    src="${album.cover_medium}"
                     alt="${album.title}"
                 />
             </div>
@@ -125,23 +125,25 @@ const displayMoreAlbums = (album) => {
   try {
     const moreAlbumsNode = document.querySelector("#moreAlbums");
     moreAlbumsNode.innerHTML += `
-        <div class="card col">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+        <div class="card mb-2 p-4">
             <a href="./album-page.html?id=${album.id}">
                 <img
-                    src="${album.cover}"
+                    src="${album.cover_medium}"
                     alt="Album Cover"
                     class="card-img-top"
                 />
             </a>
-            <div class="card-body">
+            <div class="card-body px-0 mb-3">
                 <a href="./artist.html?id=${album.artist.id}"
                     <p class="card-text album-title">${album.artist.name}</p>
                 </a>
                 <a href="./album-page.html?id=${album.id}">
-                    <p class="card-text">${album.title}<br/><span>${album.release_date}</span></p>
+                    <p class="card-text truncate">${album.title}<br/><span>${album.release_date}</span></p>
                 </a>
             </div>
-        </div>`;
+        </div>
+    </div>`;
   } catch (error) {
     console.log(error);
   }
@@ -160,3 +162,5 @@ scrollNavbar = () => {
     headerNode.classList.remove("bg-color");
   }
 };
+
+
