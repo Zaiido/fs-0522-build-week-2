@@ -5,46 +5,52 @@ let artistsArray = ["eminem", "queen", "metallica", "beyonce", "marc antony", "w
 
 
 window.onload = async () => {
-    for (let artist of artistsArray) {
-        let songs = await getSongs(artist)
-        for (let song of songs) {
-            // console.log(song)
-            allSongsArray.push(song)
+    try {
 
-        }
-    }
+        toggleProfileDropdown()
 
-    //  REMOVE DUPLICATES 
-    for (let i = 0; i < allSongsArray.length - 1; i++) {
-        for (let j = i + 1; j < allSongsArray.length; j++) {
-            if (allSongsArray[i].album.title === allSongsArray[j].album.title) {
-                allSongsArray.splice(j, 1)
-                j--
+
+        for (let artist of artistsArray) {
+            let songs = await getSongs(artist)
+            for (let song of songs) {
+                // console.log(song)
+                allSongsArray.push(song)
+
             }
         }
+
+        //  REMOVE DUPLICATES 
+        for (let i = 0; i < allSongsArray.length - 1; i++) {
+            for (let j = i + 1; j < allSongsArray.length; j++) {
+                if (allSongsArray[i].album.title === allSongsArray[j].album.title) {
+                    allSongsArray.splice(j, 1)
+                    j--
+                }
+            }
+        }
+
+        // SHUFFLE THE ARRAY
+
+        for (let i = allSongsArray.length - 1; i > 0; i--) {
+            var y = Math.floor(Math.random() * i);
+            var temp = allSongsArray[i];
+            allSongsArray[i] = allSongsArray[y];
+            allSongsArray[y] = temp;
+        }
+
+        for (let i = 0; i < 18; i++) {
+            renderSongs(allSongsArray[i])
+        }
+
+    } catch (error) {
+        console.log(error)
     }
-
-    // SHUFFLE THE ARRAY
-
-    for (let i = allSongsArray.length - 1; i > 0; i--) {
-        var y = Math.floor(Math.random() * i);
-        var temp = allSongsArray[i];
-        allSongsArray[i] = allSongsArray[y];
-        allSongsArray[y] = temp;
-    }
-
-    for (let i = 0; i < 18; i++) {
-        renderSongs(allSongsArray[i])
-        renderPlaylist(allSongsArray[i])
-    }
-
-
 
 }
 
 
 const renderSongs = (song) => {
-    // console.log(song)
+    // console.log(song.album.id)
     let rowNodes = document.querySelectorAll(".row:not(:first-of-type)");
     let row;
 
@@ -57,7 +63,7 @@ const renderSongs = (song) => {
     else {
         row = rowNodes[2]
     }
-
+    // console.log(song.album.id)
     row.innerHTML += ` <div class="col-12 col-sm-6 col-md-4 col-lg-2">
             <a href="album-page.html?id=${song.album.id}">
                 <div class="card">
@@ -74,19 +80,13 @@ const renderSongs = (song) => {
                             </svg>
                         </button>
                         <h5 class="card-title truncate">${song.album.title}</h5>
-                        <p class="card-text truncate">${song.artist.name}</p>
+                        <a href="artist.html?id=${song.artist.id}"> 
+                            <p class="card-text truncate">${song.artist.name}</p>
+                        </a>
                     </div>
                 </div>
             </a>
         </div>`
-}
-
-
-const renderPlaylist = (song) => {
-    let ulNode = document.querySelector("#navbar-playlist")
-    ulNode.innerHTML += `<a href="album-page.html?id=${song.album.id}">
-    <li class="truncate">${song.album.title}</li>
-</a>`
 }
 
 
@@ -101,3 +101,34 @@ const getSongs = async (query) => {
     }
 }
 
+
+const toggleProfileDropdown = () => {
+    let profileNode = document.querySelector(".profile")
+    profileNode.addEventListener("click", () => {
+        let svgNode = document.querySelector(".down-arrow")
+        let dropdownMenu = document.querySelector(".dropdown-menu")
+        if (svgNode.hasAttribute("transform")) {
+            svgNode.removeAttribute("transform")
+            dropdownMenu.classList.replace("d-block", "d-none")
+        }
+        else {
+            svgNode.setAttribute("transform", "rotate(180)")
+            dropdownMenu.classList.replace("d-none", "d-block")
+        }
+    })
+    bodyToggleProfileDropdown()
+}
+
+const bodyToggleProfileDropdown = () => {
+    let sectionNode = document.querySelector(".main-container").querySelector("section:nth-of-type(1)");
+
+    sectionNode.addEventListener("click", () => {
+
+        let svgNode = document.querySelector(".down-arrow")
+        let dropdownMenu = document.querySelector(".dropdown-menu")
+        if (svgNode.hasAttribute("transform")) {
+            svgNode.removeAttribute("transform")
+            dropdownMenu.classList.replace("d-block", "d-none")
+        }
+    })
+}
