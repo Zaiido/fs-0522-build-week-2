@@ -74,7 +74,7 @@ h4:hover {
 }
 
 .row:first-of-type>div {
-    min-width: fit-content;
+    min-width: 250px;
 }
 
 .menu-container {
@@ -194,4 +194,68 @@ h4+span:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.card a:nth-of-type(2):hover {
+    text-decoration: underline;
+}
+
+/* PROFILE DROPDOWN MENU */
+
+.dropdown-menu {
+    display: block;
+    background-color: #282828;
+    right: 0;
+    left: auto;
+    margin-right: 2.5rem;
+    padding-inline: 10px;
+}
+
+.dropdown-menu a {
+    color: white;
+    font-size: 15px;
+}
+
+.dropdown-menu svg {
+    opacity: 1;
+    margin-left: 10px;
+}
+
+.dropdown-menu hr {
+    border: none;
+    border-bottom: 1px rgba(136, 136, 136, 0.419) solid;
+}
+
+a.dropdown-item:hover {
+    color: white;
+    background-color: #e9ecef2d;
+    border-radius: 2px;
+}
+
+.dropdown-item:focus {
+    background-color: transparent;
+    color: white;
+}
+
+
+/* CARDS RESPONSIVENESS */
+
+
+@media (max-width: 767px) {
+
+    .row:not(:first-of-type) .col-12:last-child,
+    .row:not(:first-of-type) .col-12:nth-child(5),
+    .row:not(:first-of-type) .col-12:nth-child(4),
+    .row:not(:first-of-type) .col-12:nth-child(3) {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+    .row:not(:first-of-type) .col-12:last-child,
+    .row:not(:first-of-type) .col-12:nth-child(5),
+    .row:not(:first-of-type) .col-12:nth-child(4) {
+        display: none;
+    }
 }
