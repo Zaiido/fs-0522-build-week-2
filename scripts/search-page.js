@@ -1,13 +1,5 @@
 let url = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
-// window.onload = async () => {
-//   try {
-//     await getSongs();
-//   } catch (error) {
-//     console.log(`onload() error is${error}`);
-//   }
-// };
-
 const getSongs = async () => {
   try {
     let searchInput = document.querySelector("#search-input").value;
@@ -30,7 +22,7 @@ const displaySongs = (arr) => {
     searchSongResultsNode.innerHTML += `
     <div class="col">
         <div class="card">
-            <a href="#"
+            <a href="./album-page.html?id=${song.album.id}"
             ><img class="card-img-top" src="${song.album.cover}" alt="song cover"
             /></a>
             <div class="card-body">
