@@ -112,58 +112,6 @@ const renderMoreSongs = async (songs) => {
   }
 };
 
-let playState = "play";
-const ifPlay = () => {
-  const audio = document.querySelector("audio");
-  const PlayIconContainer = document.getElementById("play");
-  const stopContainer = document.getElementById("stop");
-  if (playState === "play") {
-    audio.play();
-    playState = "pause";
-    PlayIconContainer.classList.add("d-none");
-    stopContainer.classList.remove("d-none");
-  } else {
-    audio.pause();
-    playState = "play";
-    PlayIconContainer.classList.remove("d-none");
-    stopContainer.classList.add("d-none");
-  }
-};
-// let seconds = 0;
-const playDefaultEvent = () => {
-  const PlayIconContainer = document.getElementById("play");
-  const stopContainer = document.getElementById("stop");
-  PlayIconContainer.addEventListener("click", ifPlay);
-  stopContainer.addEventListener("click", ifPlay);
-};
-
-// const updateTime = (audio) => {
-//   const sliderTime = document.getElementById("slider-time");
-//   sliderTime.innerText = audio.currentTime;
-// };
-// const upTimer = () => {
-//   ++seconds;
-
-//   let minute = Math.floor(seconds / 60);
-
-//   let updSecond = seconds - minute * 60;
-
-//   document.getElementById("slider-time").innerText = minute + ":" + updSecond;
-// };
-
-const player = (song) => {
-  const audioContainer = document.getElementById("audio-container");
-  audioContainer.innerHTML = "";
-  audioContainer.innerHTML += `<audio controls src="${song}" preload=”metadata” loop></audio>`;
-  const audio = document.querySelector("audio");
-  audio.play();
-  const PlayIconContainer = document.getElementById("play");
-  const stopContainer = document.getElementById("stop");
-
-  PlayIconContainer.addEventListener("click", ifPlay());
-  stopContainer.addEventListener("click", ifPlay());
-};
-
 const updatePlayerCover = (cover) => {
   const container = document.getElementById("player-album");
   container.innerHTML = "";
@@ -196,21 +144,17 @@ const makeGreen = () => {
 
 const makeChange = (event) => {
   const rowTo = event.target.parentElement.parentElement.firstElementChild;
-  // console.log(event.target.parentElement.parentElement.firstElementChild);
-  // const secondrow = rowTo.nextSibling.nextSibling.nextSibling.nextSibling;
 
   rowTo.innerHTML = `<i class="bi bi-play-fill"></i>`;
 };
 
 window.onload = () => {
-  // getDataArtist();
   getDataSongs();
   playDefaultEvent();
 };
 
 const scrollNavbar = () => {
   const headerNode = document.querySelector(".navbar");
-  // console.log(headerNode)
   if (window.scrollY >= 90) {
     headerNode.classList.add("bg-color");
   } else {
