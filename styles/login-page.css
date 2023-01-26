@@ -38,6 +38,10 @@ header .spotify-logo {
   width: 102%;
 }
 
+.or {
+  margin-inline: 10px;
+}
+
 .line {
   border-bottom: 1px solid gray;
   color: white;
@@ -46,7 +50,7 @@ header .spotify-logo {
 }
 
 .line-left {
-  margin-left: -5px;
+  margin-left: -10px;
 }
 
 /* login email */
