@@ -34,15 +34,20 @@ header .spotify-logo {
   border-radius: 50px;
 }
 
-.or-container {
+/* .or-container {
   width: 102%;
-}
+} */
 
 .or {
   margin-inline: 10px;
 }
 
 .line {
+  letter-spacing: -3px;
+  color: gray;
+}
+
+/* .line {
   border-bottom: 1px solid gray;
   color: white;
   position: relative;
@@ -51,7 +56,7 @@ header .spotify-logo {
 
 .line-left {
   margin-left: -10px;
-}
+} */
 
 /* login email */
 .login-email {
