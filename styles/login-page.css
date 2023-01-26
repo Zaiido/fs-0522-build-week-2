@@ -96,6 +96,7 @@ input[type="checkbox"]:checked {
   margin-top: 10px;
   margin-bottom: 40px;
 }
+
 .forgot-password:hover {
   color: #48b850;
 }
@@ -106,6 +107,7 @@ input[type="checkbox"]:checked {
   font-weight: 900;
   font-size: larger;
 }
+
 .btn-sign-up {
   border: 2px solid black;
   border-radius: 50px;
@@ -137,4 +139,9 @@ input[type="checkbox"]:checked {
 
 .btn.btn-sign-up:hover {
   color: black;
+}
+
+
+.required::-webkit-input-placeholder {
+  color: red;
 }
