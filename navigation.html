@@ -265,20 +265,17 @@
                   d="M7.5 10.723l.98-1.167.957 1.14a2.25 2.25 0 001.724.804h1.947l-1.017-1.018a.75.75 0 111.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 11-1.06-1.06L13.109 13H11.16a3.75 3.75 0 01-2.873-1.34l-.787-.938z">
                 </path>
               </svg></div>
-            <div class="nav-icon"><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"
+            <div class="nav-icon prev-track" onclick="prevTrack()"><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"
                 data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
                 <path
                   d="M3.3 1a.7.7 0 01.7.7v5.15l9.95-5.744a.7.7 0 011.05.606v12.575a.7.7 0 01-1.05.607L4 9.149V14.3a.7.7 0 01-.7.7H1.7a.7.7 0 01-.7-.7V1.7a.7.7 0 01.7-.7h1.6z">
                 </path>
               </svg></div>
-            <div><button class="play" aria-label="Play" data-testid="control-button-playpause"
-                style="--button-size:32px;" aria-expanded="false"><svg role="img" class="mb-1" height="16" width="16"
-                  aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
-                  <path
-                    d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z">
-                  </path>
-                </svg></button></div>
-            <div class="nav-icon"><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"
+              <div class="pb-1">
+
+                <button class="play pb-1" id="play" onclick="playpauseTrack()" src="https://cdns-preview-1.dzcdn.net/stream/c-17597947a0fdd6e8ea971f146755cd34-13.mp3" aria-label="Play" data-testid="control-button-playpause" style="--button-size:32px;" aria-expanded="false"><svg role="img"  height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg></button>
+                <button id="stop" class="d-none" onclick="playpauseTrack()" aria-label="Pause" data-testid="control-button-playpause" style="--button-size:32px;" aria-expanded="false"><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7H2.7zm8 0a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-2.6z"></path></svg></button></div>
+            <div class="nav-icon next-track"  onclick="nextTrack()"><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"
                 data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
                 <path
                   d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z">
@@ -292,7 +289,11 @@
               </svg></div>
           </div>
           <div class="d-flex gap align-items-center">
-            <span>00:00</span><span class="music-bar"></span><span>03:23</span>
+            <div class="slider_container">
+              <span class="current-time">00:00</span>
+              <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+              <span class="total-duration">00:00</span>
+          </div>
           </div>
         </div>
         <div class="d-flex gap align-items-center">
@@ -315,7 +316,7 @@
               </path>
               <path d="M13 10a2 2 0 11-4 0 2 2 0 014 0zm-1-5a1 1 0 11-2 0 1 1 0 012 0z"></path>
             </svg></div>
-          <div class="nav-icon"><svg role="presentation" height="16" width="16" aria-hidden="true"
+          <div class="nav-icon" id="mute" onclick="mute()"><svg " role="presentation" height="16" width="16" aria-hidden="true"
               aria-label="Volume high" id="volume-icon" viewBox="0 0 16 16" data-encore-id="icon"
               class="Svg-sc-ytk21e-0 uPxdw">
               <path
@@ -323,7 +324,14 @@
               </path>
               <path d="M11.5 13.614a5.752 5.752 0 000-11.228v1.55a4.252 4.252 0 010 8.127v1.55z"></path>
             </svg></div>
-          <div class="small-music-bar"></div>
+            <div class="nav-icon d-none" id="unmute" onclick="unMute()">
+              <svg role="presentation" height="16" width="16" aria-hidden="true" aria-label="Volume off" id="volume-icon" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw"><path d="M13.86 5.47a.75.75 0 00-1.061 0l-1.47 1.47-1.47-1.47A.75.75 0 008.8 6.53L10.269 8l-1.47 1.47a.75.75 0 101.06 1.06l1.47-1.47 1.47 1.47a.75.75 0 001.06-1.06L12.39 8l1.47-1.47a.75.75 0 000-1.06z"></path><path d="M10.116 1.5A.75.75 0 008.991.85l-6.925 4a3.642 3.642 0 00-1.33 4.967 3.639 3.639 0 001.33 1.332l6.925 4a.75.75 0 001.125-.649v-1.906a4.73 4.73 0 01-1.5-.694v1.3L2.817 9.852a2.141 2.141 0 01-.781-2.92c.187-.324.456-.594.78-.782l5.8-3.35v1.3c.45-.313.956-.55 1.5-.694V1.5z"></path></svg>
+              </div>
+            <div class="slider_container-volume">
+        
+              <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+        
+          </div>
           <div class="nav-icon"><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"
               data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
               <path
@@ -343,6 +351,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
     crossorigin="anonymous"></script>
+    <script src="player.js"></script>
 </body>
 
 </html>
