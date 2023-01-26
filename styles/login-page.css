@@ -35,22 +35,29 @@ header .spotify-logo {
 }
 
 .or-container {
-  width: 102%;
+  width: 100%;
 }
 
 .or {
   margin-inline: 10px;
 }
 
+/* .line {
+  letter-spacing: -3px;
+  color: gray;
+  font-weight: 100;
+} */
+
 .line {
   border-bottom: 1px solid gray;
   color: white;
   position: relative;
   top: -10px;
+  user-select: none;
 }
 
 .line-left {
-  margin-left: -10px;
+  margin-left: -3px;
 }
 
 /* login email */
@@ -61,6 +68,10 @@ header .spotify-logo {
 .login-email input {
   margin-bottom: 10px;
   padding: 5px 10px;
+}
+
+.login-email input:focus {
+  outline-color: black;
 }
 
 .checkbox label {
