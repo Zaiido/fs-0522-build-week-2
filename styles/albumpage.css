@@ -14,7 +14,6 @@ body {
       rgba(126, 45, 104, 1) 0%,
       rgba(18, 18, 18, 1) 22%);
   color: var(--clr-text);
-  /* overflow-x: hidden; */
 }
 
 a {
@@ -166,8 +165,14 @@ main.album-container {
 
 #seeDiscography {
   margin-left: auto;
+  padding-right: 1rem;
   color: var(--clr-text);
   font-size: 13px;
+  cursor: pointer;
+}
+
+#seeDiscography:hover {
+  text-decoration: underline;
 }
 
 .more-albums .card-img-top {
@@ -186,8 +191,6 @@ main.album-container {
 
 .more-albums {
   margin-top: 2rem;
-  overflow: hidden;
-  padding-right: 2rem;
 }
 
 .more-albums .card {
@@ -206,6 +209,10 @@ main.album-container {
 
 .more-albums .card a:hover {
   color: white;
+}
+
+#moreAlbumsToggle {
+  margin-top: 0;
 }
 
 /* footer */
@@ -355,4 +362,24 @@ svg {
 
 .dropdown-menu {
   margin-top: -15px;
+}
+
+
+@media (max-width: 767px) {
+
+  .row:not(:first-of-type) .col-12:last-child,
+  .row:not(:first-of-type) .col-12:nth-child(5),
+  .row:not(:first-of-type) .col-12:nth-child(4),
+  .row:not(:first-of-type) .col-12:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+  .row:not(:first-of-type) .col-12:last-child,
+  .row:not(:first-of-type) .col-12:nth-child(5),
+  .row:not(:first-of-type) .col-12:nth-child(4) {
+    display: none;
+  }
 }

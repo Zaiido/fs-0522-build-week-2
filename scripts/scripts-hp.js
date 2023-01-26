@@ -1,6 +1,6 @@
 let url = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 let allSongsArray = []
-let artistsArray = ["eminem", "queen", "metallica", "beyonce", "marc antony", "witney houston", "michael jackson"]
+let artistsArray = ["eminem", "queen", "metallica", "drake", "marc antony", "witney houston", "michael jackson"]
 
 
 
