@@ -24,18 +24,16 @@ body {
 }
 .image-wrapper {
     position: relative;
-    /* object-fit: cover; */
-    height: 90vh;
+    height: 70vh;
     transition: 0.5s;
 
 }
 .image-wrapper img {
-    object-fit: fill;
+    /* object-fit: fill; */
     object-position: top;
-    height: 90vh;
-    /* object-fit: scale-down; */
+    object-fit: contain;
     transition: 0.5s ease-in;
-    width: 100%;
+    
 
 
 }
@@ -199,4 +197,13 @@ audio::-webkit-media-controls-panel {
     border-radius: 25px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .active-text {
+    color: #1ed760;
+    /* background-color: #9890907b;
+    scale: 1.05; */
+  }
+  .active-icon {
+    background-color: green;
   }
