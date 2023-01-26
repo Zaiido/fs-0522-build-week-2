@@ -15,6 +15,10 @@ body {
     z-index: -1;
 }
 
+.main-container {
+    width: 100vw;
+}
+
 
 header {
     background-color: transparent;

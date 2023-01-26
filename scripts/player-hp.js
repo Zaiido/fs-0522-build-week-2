@@ -1,149 +1,3 @@
-let url = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
-let allSongsArray = []
-let artistsArray = ["eminem", "queen", "metallica", "drake", "marc antony", "witney houston", "michael jackson"]
-
-
-
-window.onload = async () => {
-    try {
-        for (let artist of artistsArray) {
-            let songs = await getSongs(artist)
-            for (let song of songs) {
-                // console.log(song)
-                allSongsArray.push(song)
-
-            }
-        }
-        //  REMOVE DUPLICATES 
-        for (let i = 0; i < allSongsArray.length - 1; i++) {
-            for (let j = i + 1; j < allSongsArray.length; j++) {
-                if (allSongsArray[i].album.title === allSongsArray[j].album.title) {
-                    allSongsArray.splice(j, 1)
-                    j--
-                }
-            }
-        }
-
-        // SHUFFLE THE ARRAY
-
-        for (let i = allSongsArray.length - 1; i > 0; i--) {
-            var y = Math.floor(Math.random() * i);
-            var temp = allSongsArray[i];
-            allSongsArray[i] = allSongsArray[y];
-            allSongsArray[y] = temp;
-        }
-
-        for (let i = 0; i < 18; i++) {
-            renderSongs(allSongsArray[i])
-        }
-
-        playButtonFunctionality()
-
-    } catch (error) {
-        console.log(error)
-    }
-
-}
-
-
-const renderSongs = (song) => {
-    // console.log(song.preview)
-    let rowNodes = document.querySelectorAll(".row:not(:first-of-type)");
-    let row;
-
-    if (rowNodes[0].children.length < 6) {
-        row = rowNodes[0]
-    }
-    else if (rowNodes[1].children.length < 6) {
-        row = rowNodes[1]
-    }
-    else {
-        row = rowNodes[2]
-    }
-    // console.log(song.album.id)
-    row.innerHTML += ` 
-    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-    <div class="card">
-    <img src="${song.album.cover_medium}"
-    class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <button onclick='loadTrack("${song.preview}"); playpauseTrack(); updatePlayerCover("${song.album.cover_medium}"); updatePlayerName("${song.title}"); updatePlayerArtist("${song.artist.name}")') class="btn play-button ml-auto mr-3">
-                            <svg role="img" height="24" width="24" aria-hidden="true"
-                            viewBox="0 0 24 24" data-encore-id="icon"
-                            class="Svg-sc-ytk21e-0 uPxdw">
-                                <path
-                            d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg>
-                        </button>
-                        <a href="album-page.html?id=${song.album.id}">
-                            <h5 class="card-title truncate">${song.album.title}</h5>
-                            <a href="artist.html?name=${song.artist.name}"> 
-                                <p class="card-text truncate">${song.artist.name}</p>
-                            </a>
-                        </a>
-                    </div>
-                </div>
-            </div>`
-}
-
-
-
-const getSongs = async (query) => {
-    try {
-        let response = await fetch(url + query);
-        let songs = await response.json();
-        return songs.data
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-let click = 0;
-const playButtonFunctionality = () => {
-    setTimeout(() => {
-        let buttonNodes = document.querySelectorAll(".row:not(:first-of-type) .play-button")
-        buttonNodes.forEach(button => {
-            button.addEventListener("click", async (event) => {
-                click++
-                if (click % 2 !== 0) {
-                    button.innerHTML = `<svg role="img" height="24" width="24" aria-hidden="true" 
-                    viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 
-                    uPxdw"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 
-                    00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 
-                    0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>`
-                } else {
-                    button.innerHTML = `<svg role="img" height="24" width="24" aria-hidden="true"
-                    viewBox="0 0 24 24" data-encore-id="icon"
-                    class="Svg-sc-ytk21e-0 uPxdw">
-                    <path
-                    d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                    </path>
-                    </svg>`
-                }
-            })
-        });
-    }, 2000)
-
-}
-
-
-const scrollNavbar = () => {
-    const headerNode = document.querySelector("header");
-    if (window.scrollY >= 100) {
-        headerNode.classList.add("bg-color");
-    } else {
-        headerNode.classList.remove("bg-color");
-    }
-};
-
-window.onscroll = () => {
-    scrollNavbar();
-};
-
-
-
-
 // Select all the elements in the HTML page
 // and assign them to a variable
 
@@ -165,19 +19,26 @@ let updateTimer;
 // Create the audio element for the player
 let curr_track = document.createElement("audio");
 
+// Define the list of tracks that have to be played
+let track_list = [
+    {
+        preview:
+            "https://cdns-preview-4.dzcdn.net/stream/c-48b953f0ef2f149f93b067e11aed5c88-3.mp3",
+    },
+    {
+        preview:
+            "https://cdns-preview-9.dzcdn.net/stream/c-9b9f17556a728310cf7865ee6a89143f-11.mp3",
+    },
+];
 
-function loadTrack(song) {
+function loadTrack(track_index) {
     // Clear the previous seek timer
     clearInterval(updateTimer);
     resetValues();
 
     // Load a new track
-    curr_track.src = song;
+    curr_track.src = track_list[track_index].preview;
     curr_track.load();
-    const PlayIconContainer = document.getElementById("play");
-    const stopContainer = document.getElementById("stop");
-    PlayIconContainer.classList.remove("d-none");
-    stopContainer.classList.add("d-none");
 
     // Set an interval of 1000 milliseconds
     // for updating the seek slider
@@ -252,7 +113,7 @@ function seekTo() {
     // Calculate the seek position by the
     // percentage of the seek slider
     // and get the relative duration to the track
-    let seekto = curr_track.duration * (seek_slider.value / 100);
+    seekto = curr_track.duration * (seek_slider.value / 100);
 
     // Set the current track position to the calculated seek position
     curr_track.currentTime = seekto;
@@ -310,8 +171,9 @@ function seekUpdate() {
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
     }
 }
+
 const updatePlayerCover = (cover) => {
-    const container = document.querySelector(".album-photo");
+    const container = document.getElementById("player-album");
     container.innerHTML = "";
     container.innerHTML += `
     <img src="${cover}" height="48" width="48" alt="">`;
@@ -325,5 +187,6 @@ const updatePlayerArtist = (artist) => {
     const container = document.getElementById("player-artist");
     container.innerText = artist;
 };
+
 // Load the first track in the tracklist
 loadTrack(track_index);
