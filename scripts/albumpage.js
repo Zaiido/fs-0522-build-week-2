@@ -28,10 +28,9 @@ const artists = [
   "Malinda",
 ];
 
-
 window.onload = async () => {
   await getAlbum();
-  toggleAlbums()
+  toggleAlbums();
   artists.forEach((artist) => {
     getAlbumId(artist);
   });
@@ -79,14 +78,15 @@ const displayAlbum = async (album) => {
                         class="artist-img"
                     />
                     <span>
-                        <a href="./artist.html?id=${album.artist.id}">${album.artist.name
-      }</a>
+                        <a href="./artist.html?id=${album.artist.id}">${
+      album.artist.name
+    }</a>
                     </span>
                     <span>· ${album.release_date} </span>
                     <span>· ${album.tracks.data.length} songs, </span>
                     <span>${Math.floor(
-        album.duration / 60 / 60
-      )} h ${Math.floor(album.duration % 60)} min</span>
+                      album.duration / 60 / 60
+                    )} h ${Math.floor(album.duration % 60)} min</span>
                 </div>
             </div>`;
     // display songs
@@ -95,17 +95,26 @@ const displayAlbum = async (album) => {
     // console.log(songArray[2]);
     for (let i = 0; i < songArray.length; i++) {
       let song = songArray[i];
+      const iterator = songArray[i];
+      const {
+        album: { cover_medium },
+        artist: { name },
+        title,
+        preview,
+      } = await iterator;
       songTableNode.innerHTML += `
-        <tr>
+      <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}")'>
             <td>
                 <span class="song-number">${i + 1}</span>
                 <i class="bi bi-play-fill play-song-icon"></i>
             </td>
-            <td>${song.title}<br/><span><a href="./artist.html?name=${song.artist.name
-        }">${song.artist.name}</a></span></td>
+            <td>${title}<br/><span><a href="./artist.html?name=${
+        song.artist.name
+      }">${song.artist.name}</a></span></td>
             <td><i class="bi bi-heart"></i></td>
-            <td>${Math.floor(song.duration / 60)} min ${song.duration % 60
-        } sec</td>
+            <td>${Math.floor(song.duration / 60)} min ${
+        song.duration % 60
+      } sec</td>
         </tr>`;
     }
   } catch (error) {
@@ -130,9 +139,9 @@ const displayMoreAlbums = (album) => {
     const moreAlbumsToggleNode = document.querySelector("#moreAlbumsToggle");
     let row;
     if (moreAlbumsNode.children.length < 6) {
-      row = moreAlbumsNode
+      row = moreAlbumsNode;
     } else {
-      row = moreAlbumsToggleNode
+      row = moreAlbumsToggleNode;
     }
     row.innerHTML += `
     <div class="col-12 col-sm-6 col-md-4 col-lg-2 px-0">
@@ -163,9 +172,9 @@ const toggleAlbums = () => {
   let aNode = document.querySelector("#seeDiscography");
   aNode.addEventListener("click", () => {
     let rowNode = document.querySelector("#moreAlbumsToggle");
-    rowNode.classList.toggle("d-none")
-  })
-}
+    rowNode.classList.toggle("d-none");
+  });
+};
 
 window.onscroll = () => {
   scrollNavbar();
@@ -181,4 +190,198 @@ scrollNavbar = () => {
   }
 };
 
+/* player */
 
+const updatePlayerCover = (cover) => {
+  const container = document.getElementById("player-album");
+  container.innerHTML = "";
+  container.innerHTML += `
+  <img src="${cover}" height="48" width="48" alt="">`;
+};
+
+const updatePlayerName = (title) => {
+  const container = document.getElementById("player-title");
+  container.innerText = title;
+};
+const updatePlayerArtist = (artist) => {
+  const container = document.getElementById("player-artist");
+  container.innerText = artist;
+};
+
+let playpause_btn = document.querySelector(".play");
+let next_btn = document.querySelector(".next-track");
+let prev_btn = document.querySelector(".prev-track");
+let seek_slider = document.querySelector(".seek_slider");
+let volume_slider = document.querySelector(".volume_slider");
+let curr_time = document.querySelector(".current-time");
+let total_duration = document.querySelector(".total-duration");
+let muteButton = document.getElementById("mute");
+let unMuteButton = document.getElementById("unmute");
+
+// Specify globally used values
+let track_index = 0;
+let isPlaying = false;
+let updateTimer;
+
+// Create the audio element for the player
+let curr_track = document.createElement("audio");
+
+// Define the list of tracks that have to be played
+let track_list = [
+  {
+    preview:
+      "https://cdns-preview-4.dzcdn.net/stream/c-48b953f0ef2f149f93b067e11aed5c88-3.mp3",
+  },
+  {
+    preview:
+      "https://cdns-preview-9.dzcdn.net/stream/c-9b9f17556a728310cf7865ee6a89143f-11.mp3",
+  },
+];
+
+function loadTrack(song) {
+  // Clear the previous seek timer
+  clearInterval(updateTimer);
+  resetValues();
+
+  // Load a new track
+  curr_track.src = song;
+  curr_track.load();
+  const PlayIconContainer = document.getElementById("play");
+  const stopContainer = document.getElementById("stop");
+  PlayIconContainer.classList.remove("d-none");
+  stopContainer.classList.add("d-none");
+
+  // Set an interval of 1000 milliseconds
+  // for updating the seek slider
+  updateTimer = setInterval(seekUpdate, 1000);
+
+  // Move to the next track if the current finishes playing
+  // using the 'ended' event
+  curr_track.addEventListener("ended", nextTrack);
+}
+
+// Function to reset all values to their default
+function resetValues() {
+  curr_time.textContent = "00:00";
+  total_duration.textContent = "00:00";
+  seek_slider.value = 0;
+}
+
+function playpauseTrack() {
+  // Switch between playing and pausing
+  // depending on the current state
+  if (!isPlaying) playTrack();
+  else pauseTrack();
+}
+
+function playTrack() {
+  // Play the loaded track
+  curr_track.play();
+  isPlaying = true;
+
+  // Replace icon with the pause icon
+  const PlayIconContainer = document.getElementById("play");
+  const stopContainer = document.getElementById("stop");
+  PlayIconContainer.classList.add("d-none");
+  stopContainer.classList.remove("d-none");
+}
+
+function pauseTrack() {
+  // Pause the loaded track
+  curr_track.pause();
+  isPlaying = false;
+  const PlayIconContainer = document.getElementById("play");
+  const stopContainer = document.getElementById("stop");
+  PlayIconContainer.classList.remove("d-none");
+  stopContainer.classList.add("d-none");
+
+  // Replace icon with the play icon
+}
+
+function nextTrack() {
+  // Go back to the first track if the
+  // current one is the last in the track list
+  if (track_index < track_list.length - 1) track_index += 1;
+  else track_index = 0;
+
+  // Load and play the new track
+  loadTrack(track_index);
+  playTrack();
+}
+
+function prevTrack() {
+  // Go back to the last track if the
+  // current one is the first in the track list
+  if (track_index > 0) track_index -= 1;
+  else track_index = track_list.length - 1;
+
+  // Load and play the new track
+  loadTrack(track_index);
+  playTrack();
+}
+
+function seekTo() {
+  // Calculate the seek position by the
+  // percentage of the seek slider
+  // and get the relative duration to the track
+  seekto = curr_track.duration * (seek_slider.value / 100);
+
+  // Set the current track position to the calculated seek position
+  curr_track.currentTime = seekto;
+}
+
+function setVolume() {
+  // Set the volume according to the
+  // percentage of the volume slider set
+  curr_track.volume = volume_slider.value / 100;
+}
+function mute() {
+  curr_track.volume = 0;
+  muteButton.classList.add("d-none");
+  unMuteButton.classList.remove("d-none");
+}
+function unMute() {
+  setVolume();
+  unMuteButton.classList.add("d-none");
+  muteButton.classList.remove("d-none");
+}
+function seekUpdate() {
+  let seekPosition = 0;
+
+  // Check if the current track duration is a legible number
+  if (!isNaN(curr_track.duration)) {
+    seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+    seek_slider.value = seekPosition;
+
+    // Calculate the time left and the total duration
+    let currentMinutes = Math.floor(curr_track.currentTime / 60);
+    let currentSeconds = Math.floor(
+      curr_track.currentTime - currentMinutes * 60
+    );
+    let durationMinutes = Math.floor(curr_track.duration / 60);
+    let durationSeconds = Math.floor(
+      curr_track.duration - durationMinutes * 60
+    );
+
+    // Add a zero to the single digit time values
+    if (currentSeconds < 10) {
+      currentSeconds = "0" + currentSeconds;
+    }
+    if (durationSeconds < 10) {
+      durationSeconds = "0" + durationSeconds;
+    }
+    if (currentMinutes < 10) {
+      currentMinutes = "0" + currentMinutes;
+    }
+    if (durationMinutes < 10) {
+      durationMinutes = "0" + durationMinutes;
+    }
+
+    // Display the updated duration
+    curr_time.textContent = currentMinutes + ":" + currentSeconds;
+    total_duration.textContent = durationMinutes + ":" + durationSeconds;
+  }
+}
+
+// Load the first track in the tracklist
+loadTrack(track_index);
