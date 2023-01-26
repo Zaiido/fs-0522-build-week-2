@@ -23,7 +23,7 @@ const displaySongs = (arr) => {
     <div class="col">
         <div class="card">
             <a href="./album-page.html?id=${song.album.id}"
-            ><img class="card-img-top" src="${song.album.cover}" alt="song cover"
+            ><img class="card-img-top" src="${song.album.cover_medium}" alt="song cover"
             /></a>
             <div class="card-body">
             <button class="btn play-button ml-auto mr-3">
@@ -41,4 +41,18 @@ const displaySongs = (arr) => {
         </div>
     </div>`;
   }
+};
+
+
+const scrollNavbar = () => {
+  const headerNode = document.querySelector("header");
+  if (window.scrollY >= 70) {
+    headerNode.classList.add("bg-color");
+  } else {
+    headerNode.classList.remove("bg-color");
+  }
+};
+
+window.onscroll = () => {
+  scrollNavbar();
 };

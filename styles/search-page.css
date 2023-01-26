@@ -9,11 +9,9 @@ body {
   height: 400px;
   margin-top: -64px;
   background: rgb(18, 18, 18);
-  background: linear-gradient(
-    0deg,
-    rgba(18, 18, 18, 1) 0%,
-    rgba(55, 9, 9, 1) 56%
-  );
+  background: linear-gradient(0deg,
+      rgba(18, 18, 18, 1) 0%,
+      rgba(55, 9, 9, 1) 56%);
   width: 100%;
   z-index: -1;
 }
@@ -21,7 +19,8 @@ body {
 header {
   background-color: transparent;
   position: sticky;
-  top: 1rem;
+  top: 0;
+  padding-block: 1px;
   z-index: 2;
 }
 
@@ -64,13 +63,13 @@ h2 {
   font-weight: 700;
 }
 
-h4 + span {
+h4+span {
   color: rgb(179, 179, 179);
   font-size: 12px;
   letter-spacing: 0.5px;
 }
 
-h4 + span:hover {
+h4+span:hover {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -297,4 +296,21 @@ a.dropdown-item:hover {
   margin-left: auto;
   margin-right: 15px;
   color: var(--clr-grey-text);
+}
+
+
+.bg-color {
+  background-color: black;
+  animation-name: backgroundChange;
+  animation-duration: 1s;
+}
+
+@keyframes backgroundChange {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: black;
+  }
 }
