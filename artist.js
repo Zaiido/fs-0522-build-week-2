@@ -351,10 +351,12 @@ function changeState() {
     stop.classList.remove("d-none");
     PlayIconContainer.classList.add("d-none");
     stopContainer.classList.remove("d-none");
+    playTrack();
   } else {
     stop.classList.add("d-none");
     play.classList.remove("d-none");
     PlayIconContainer.classList.remove("d-none");
     stopContainer.classList.add("d-none");
+    pauseTrack();
   }
 }
