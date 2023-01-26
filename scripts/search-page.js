@@ -9,7 +9,7 @@ const getSongs = async () => {
       console.log(searchInput);
       let response = await fetch(url + searchInput);
       let songs = await response.json();
-      console.log(songs.data);
+      // console.log(songs.data);
       displaySongs(songs.data);
     }
   } catch (error) {
@@ -20,188 +20,34 @@ const getSongs = async () => {
 const showDefault = () => {
   const searchSongResultsNode = document.querySelector("#search-song-results");
   searchSongResultsNode.innerHTML = "";
-  searchSongResultsNode.innerHTML = `<div class="col placeholder">
-  <a href="#">
-    <div class="card d-flex pink">
-      <h3 class="card-title">Potcast</h3>
-      <div class="random-picture-container">
-        <img
-          src="https://picsum.photos/100"
-          alt="random picture"
-        />
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col placeholder">
-  <a href="#">
-    <div class="card d-flex pink">
-      <h3 class="card-title">Potcast</h3>
-      <div class="random-picture-container">
-        <img
-          src="https://picsum.photos/100"
-          alt="random picture"
-        />
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col placeholder">
-  <a href="#">
-    <div class="card d-flex pink">
-      <h3 class="card-title">Potcast</h3>
-      <div class="random-picture-container">
-        <img
-          src="https://picsum.photos/100"
-          alt="random picture"
-        />
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col placeholder">
-  <a href="#">
-    <div class="card d-flex blue">
-      <h3 class="card-title">Potcast</h3>
-      <div class="random-picture-container">
-        <img
-          src="https://picsum.photos/100"
-          alt="random picture"
-        />
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col placeholder">
-  <a href="#">
-    <div class="card d-flex purple">
-      <h3 class="card-title">Potcast</h3>
-      <div class="random-picture-container">
-        <img
-          src="https://picsum.photos/100"
-          alt="random picture"
-        />
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col placeholder">
-  <a href="#">
-    <div class="card d-flex orange">
-      <h3 class="card-title">Potcast</h3>
-      <div class="random-picture-container">
-        <img
-          src="https://picsum.photos/100"
-          alt="random picture"
-        />
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col placeholder">
-  <a href="#">
-    <div class="card d-flex silver">
-      <h3 class="card-title">Potcast</h3>
-      <div class="random-picture-container">
-        <img
-          src="https://picsum.photos/100"
-          alt="random picture"
-        />
-      </div>
-    </div>
-  </a>
-</div>
-<div class="col placeholder">
-                <a href="#">
-                  <div class="card d-flex pink">
-                    <h3 class="card-title">Potcast</h3>
-                    <div class="random-picture-container">
-                      <img
-                        src="https://picsum.photos/100"
-                        alt="random picture"
-                      />
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col placeholder">
-                <a href="#">
-                  <div class="card d-flex pink">
-                    <h3 class="card-title">Potcast</h3>
-                    <div class="random-picture-container">
-                      <img
-                        src="https://picsum.photos/100"
-                        alt="random picture"
-                      />
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col placeholder">
-                <a href="#">
-                  <div class="card d-flex pink">
-                    <h3 class="card-title">Potcast</h3>
-                    <div class="random-picture-container">
-                      <img
-                        src="https://picsum.photos/100"
-                        alt="random picture"
-                      />
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col placeholder">
-                <a href="#">
-                  <div class="card d-flex blue">
-                    <h3 class="card-title">Potcast</h3>
-                    <div class="random-picture-container">
-                      <img
-                        src="https://picsum.photos/100"
-                        alt="random picture"
-                      />
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col placeholder">
-                <a href="#">
-                  <div class="card d-flex purple">
-                    <h3 class="card-title">Potcast</h3>
-                    <div class="random-picture-container">
-                      <img
-                        src="https://picsum.photos/100"
-                        alt="random picture"
-                      />
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col placeholder">
-                <a href="#">
-                  <div class="card d-flex orange">
-                    <h3 class="card-title">Potcast</h3>
-                    <div class="random-picture-container">
-                      <img
-                        src="https://picsum.photos/100"
-                        alt="random picture"
-                      />
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col placeholder">
-                <a href="#">
-                  <div class="card d-flex silver">
-                    <h3 class="card-title">Potcast</h3>
-                    <div class="random-picture-container">
-                      <img
-                        src="https://picsum.photos/100"
-                        alt="random picture"
-                      />
-                    </div>
-                  </div>
-                </a>
-              </div>`;
+  for (let i = 0; i < 55; i++) {
+    let color = random_bg_color();
+    console.log(color);
+    searchSongResultsNode.innerHTML += `
+    <div class="col placeholder">
+      <a href="#">
+        <div class="card d-flex" style="background-color: ${color}">
+          <h3 class="card-title">Playlist ${i + 1}</h3>
+          <div class="random-picture-container">
+            <img
+            src="https://source.unsplash.com/random/100x100?sig=${i + 1}"
+            alt="random picture"
+            />
+          </div>
+        </div>
+      </a>
+    </div>`;
+  }
+};
+
+const random_bg_color = () => {
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  // console.log(bgColor);
+  return bgColor;
+  // document.body.style.background = bgColor;
 };
 
 const displaySongs = (arr) => {
@@ -245,4 +91,8 @@ const scrollNavbar = () => {
 
 window.onscroll = () => {
   scrollNavbar();
+};
+
+window.onload = () => {
+  showDefault();
 };
