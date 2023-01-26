@@ -1,0 +1,20 @@
+header {
+  text-align: center;
+  border-bottom: 1px solid grey;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+header .spotify-logo {
+  color: black;
+}
+
+or::before,
+or::before {
+  border-top: 1px solid rgb(204, 204, 204);
+  content: "";
+  display: table-cell;
+  position: relative;
+  top: 0.8em;
+  width: 42%;
+}
