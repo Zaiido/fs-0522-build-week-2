@@ -63,7 +63,7 @@ const renderSongs = async (songs) => {
     <td><span class="grey song-btn" id="title">
       ${iterator.title}
     </span></td>
-    <td><span class="grey"><a href="/album-page.html?id=${
+    <td><span class="grey"><a href="./album-page.html?id=${
       iterator.album.id
     }"> @ ${iterator.album.title}</a></span></td>
     <td><span class="grey">${parseInt(iterator.duration / 60)}m${
