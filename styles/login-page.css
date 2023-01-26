@@ -1,6 +1,4 @@
-/* #48B850 green 
-#3F5898 blue */
-
+/* header */
 header {
   text-align: center;
   border-bottom: 1px solid grey;
@@ -12,10 +10,12 @@ header .spotify-logo {
   color: black;
 }
 
+/* main */
 .main-container {
   max-width: 450px;
 }
 
+/* login socials */
 .login-socials .bi {
   margin-right: 10px;
 }
@@ -34,16 +34,22 @@ header .spotify-logo {
   border-radius: 50px;
 }
 
-or::before,
-or::before {
-  border-top: 1px solid rgb(204, 204, 204);
-  content: "";
-  display: table-cell;
-  position: relative;
-  top: 0.8em;
-  width: 42%;
+.or-container {
+  width: 102%;
 }
 
+.line {
+  border-bottom: 1px solid gray;
+  color: white;
+  position: relative;
+  top: -10px;
+}
+
+.line-left {
+  margin-left: -5px;
+}
+
+/* login email */
 .login-email {
   border-bottom: 1px solid grey;
 }
@@ -64,6 +70,7 @@ or::before {
   font-size: smaller;
   background-color: #48b850;
 }
+
 input[type="checkbox"]:checked {
   accent-color: #48b850;
   color: white;
@@ -74,7 +81,11 @@ input[type="checkbox"]:checked {
   margin-top: 10px;
   margin-bottom: 40px;
 }
+.forgot-password:hover {
+  color: #48b850;
+}
 
+/* sign up */
 .sign-up p {
   margin-top: 35px;
   font-weight: 900;
@@ -91,12 +102,24 @@ input[type="checkbox"]:checked {
   padding-bottom: 30px;
 }
 
+/* bottom */
 .bottom-info {
   margin-top: 20px;
   font-size: 11px;
 }
 
-.bottom-info span {
+.bottom-info a {
   color: #48b850;
   font-weight: 900;
+}
+
+/* btn hover */
+
+.btn:hover {
+  transform: scale(1.01);
+  color: white;
+}
+
+.btn.btn-sign-up:hover {
+  color: black;
 }
