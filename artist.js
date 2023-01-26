@@ -144,7 +144,6 @@ const makeGreen = () => {
 
 window.onload = () => {
   getDataSongs();
-  playDefaultEvent();
 };
 
 const scrollNavbar = () => {
@@ -341,3 +340,21 @@ function seekUpdate() {
 
 // Load the first track in the tracklist
 loadTrack(track_index);
+
+function changeState() {
+  let play = document.getElementById("ButtonInner-play");
+  let stop = document.getElementById("ButtonInner-stop");
+  const PlayIconContainer = document.getElementById("play");
+  const stopContainer = document.getElementById("stop");
+  if (stop.classList.contains("d-none")) {
+    play.classList.add("d-none");
+    stop.classList.remove("d-none");
+    PlayIconContainer.classList.add("d-none");
+    stopContainer.classList.remove("d-none");
+  } else {
+    stop.classList.add("d-none");
+    play.classList.remove("d-none");
+    PlayIconContainer.classList.remove("d-none");
+    stopContainer.classList.add("d-none");
+  }
+}
