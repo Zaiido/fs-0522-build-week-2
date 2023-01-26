@@ -15,7 +15,7 @@ const getDataSongs = () => {
   fetch(linksongs + id)
     .then((dataRaw) => dataRaw.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       renderArtist(data.data[0]);
       renderSongs(data.data);
     })
@@ -26,10 +26,8 @@ const getDataSongs = () => {
 
 const renderArtist = async (artist) => {
   const containerBg = document.getElementById("image-wrapper");
-  containerBg.innerHTML = "";
-  containerBg.innerHTML += `  
-            <img src="${artist.artist.picture_big}" alt="">
-  `;
+  // containerBg.innerHTML = "";
+  containerBg.style.backgroundImage = `url(${artist.artist.picture_big})`;
   const artistName = document.getElementById("artist-name");
   artistName.innerText = `${artist.artist.name}`;
   const artistNameSmall = document.getElementById("artist-by-name");
@@ -41,36 +39,33 @@ const renderArtist = async (artist) => {
 };
 
 const renderSongs = async (songs) => {
-  console.log(songs);
+  // console.log(songs);
   let containerList = document.getElementById("tbody");
   containerList.innerHTML = "";
   for (let i = 0; i < 5; i++) {
     const iterator = songs[i];
     const {
-      album: { cover },
+      album: { cover_medium },
       artist: { name },
       title,
       duration,
       preview,
     } = await iterator;
     // updatePlayerDuration("${duration}")
-    containerList.innerHTML += await ` 
-    <tr onclick='player("${preview}"); updatePlayerCover("${cover}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen(); makeChange(event)')>
+    containerList.innerHTML += ` 
+    <tr onclick='player("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen(); makeChange(event)')>
     <th scope="row" class="grey row-btn">${i + 1}</th>
     <td>
-    <img class="p-1" src="${
-      iterator.album.cover
-    }" height="48" width="48" alt="">
+    <img class="p-1" src="${iterator.album.cover_medium
+      }" height="48" width="48" alt="">
     </td>
     <td><span class="grey song-btn" id="title">
       ${iterator.title}
     </span></td>
-    <td><span class="grey"><a href="/album-page.html?id=${
-      iterator.album.id
-    }"> @ ${iterator.album.title}</a></span></td>
-    <td><span class="grey">${parseInt(iterator.duration / 60)}m${
-      iterator.duration % 60
-    }s</span></td>
+    <td><span class="grey"><a href="/album-page.html?id=${iterator.album.id
+      }"> @ ${iterator.album.title}</a></span></td>
+    <td><span class="grey">${parseInt(iterator.duration / 60)}m${iterator.duration % 60
+      }s</span></td>
   </tr>`;
   }
   document.getElementById("see-more").addEventListener("click", function () {
@@ -80,12 +75,12 @@ const renderSongs = async (songs) => {
 };
 
 const renderMoreSongs = async (songs) => {
-  console.log(songs);
+  // console.log(songs);
   let containerList = document.getElementById("tbody");
   for (let i = 5; i < songs.length; i++) {
     const iterator = songs[i];
     const {
-      album: { cover },
+      album: { cover_medium },
       artist: { name },
       title,
       duration,
@@ -93,37 +88,25 @@ const renderMoreSongs = async (songs) => {
     } = await iterator;
 
     containerList.innerHTML += `
-    <tr onclick='player("${preview}"); updatePlayerCover("${cover}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen(); makeChange(event)')>
+    <tr onclick='player("${preview}"), updatePlayerCover("${cover_medium}"), updatePlayerName("${title}"), updatePlayerArtist("${name}"), makeGreen(event), makeChange(event)')>
     <th scope="row" class="grey row-btn">${i + 1}</th>
     <td>
-    <img class="p-1" src="${
-      iterator.album.cover
-    }" height="48" width="48" alt="">
+    <img class="p-1" src="${iterator.album.cover_medium
+      }" height="48" width="48" alt="">
     </td>
     <td><span class="grey song-btn" id="title">
       ${iterator.title}
     </span></td>
-    <td><span class="grey"><a href="/album-page.html?id=${
-      iterator.album.id
-    }"> @ ${iterator.album.title}</a></span></td>
-    <td><span class="grey">${parseInt(iterator.duration / 60)}m${
-      iterator.duration % 60
-    }s</span></td>
+    <td><span class="grey"><a href="/album-page.html?id=${iterator.album.id
+      }"> @ ${iterator.album.title}</a></span></td>
+    <td><span class="grey">${parseInt(iterator.duration / 60)}m${iterator.duration % 60
+      }s</span></td>
   </tr>
 `;
   }
 };
 
-const imgChange = function () {
-  const img = document.querySelector(".image-wrapper img");
-  const imgContainer = document.querySelector(".image-wrapper");
-  if (window.pageYOffset > 300) {
-    img.classList.add("opacity");
-    imgContainer.style.backgroundColor = "#525252";
-  } else if (window.pageYOffset < 300) {
-    img.classList.remove("opacity");
-  }
-};
+
 let playState = "play";
 const ifPlay = () => {
   const audio = document.querySelector("audio");
@@ -208,15 +191,29 @@ const makeGreen = () => {
 
 const makeChange = (event) => {
   const rowTo = event.target.parentElement.parentElement.firstElementChild;
-  console.log(event.target.parentElement.parentElement.firstElementChild);
+  // console.log(event.target.parentElement.parentElement.firstElementChild);
   // const secondrow = rowTo.nextSibling.nextSibling.nextSibling.nextSibling;
 
   rowTo.innerHTML = `<i class="bi bi-play-fill"></i>`;
 };
 
-window.addEventListener("scroll", imgChange);
+
 window.onload = () => {
   // getDataArtist();
   getDataSongs();
   playDefaultEvent();
+};
+
+const scrollNavbar = () => {
+  const headerNode = document.querySelector(".navbar");
+  // console.log(headerNode)
+  if (window.scrollY >= 90) {
+    headerNode.classList.add("bg-color");
+  } else {
+    headerNode.classList.remove("bg-color");
+  }
+};
+
+window.onscroll = () => {
+  scrollNavbar();
 };
