@@ -6,11 +6,12 @@ const par = new URLSearchParams(location.search);
 const id = par.get("id");
 
 const moreAlbumsId = [];
+
 const artists = [
   "eminem",
   "rihanna",
   "simple plan",
-  "beyonce",
+  "drake",
   "metallica",
   "sick puppies",
   "Miley Cyrus",
@@ -27,8 +28,10 @@ const artists = [
   "Malinda",
 ];
 
+
 window.onload = async () => {
   await getAlbum();
+  toggleAlbums()
   artists.forEach((artist) => {
     getAlbumId(artist);
   });
@@ -39,7 +42,6 @@ const getAlbumId = async (artist) => {
     let response = await fetch(searchUrl + artist);
     let album = await response.json();
     let albumId = await album.data[0].album.id;
-    console.log(albumId);
     await getMoreAlbums(albumId);
   } catch (error) {
     console.log(error);
@@ -90,7 +92,7 @@ const displayAlbum = async (album) => {
     // display songs
     const songTableNode = document.querySelector("#songTable");
     let songArray = album.tracks.data;
-    console.log(songArray[2]);
+    // console.log(songArray[2]);
     for (let i = 0; i < songArray.length; i++) {
       let song = songArray[i];
       songTableNode.innerHTML += `
@@ -115,6 +117,7 @@ const getMoreAlbums = async (albumId) => {
   try {
     let response = await fetch(url + albumId);
     let album = await response.json();
+    // console.log(album)
     displayMoreAlbums(album);
   } catch (error) {
     console.log(error);
@@ -124,8 +127,15 @@ const getMoreAlbums = async (albumId) => {
 const displayMoreAlbums = (album) => {
   try {
     const moreAlbumsNode = document.querySelector("#moreAlbums");
-    moreAlbumsNode.innerHTML += `
-    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+    const moreAlbumsToggleNode = document.querySelector("#moreAlbumsToggle");
+    let row;
+    if (moreAlbumsNode.children.length < 6) {
+      row = moreAlbumsNode
+    } else {
+      row = moreAlbumsToggleNode
+    }
+    row.innerHTML += `
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2 px-0">
         <div class="card mb-2 p-4">
             <a href="./album-page.html?id=${album.id}">
                 <img
@@ -148,6 +158,14 @@ const displayMoreAlbums = (album) => {
     console.log(error);
   }
 };
+
+const toggleAlbums = () => {
+  let aNode = document.querySelector("#seeDiscography");
+  aNode.addEventListener("click", () => {
+    let rowNode = document.querySelector("#moreAlbumsToggle");
+    rowNode.classList.toggle("d-none")
+  })
+}
 
 window.onscroll = () => {
   scrollNavbar();

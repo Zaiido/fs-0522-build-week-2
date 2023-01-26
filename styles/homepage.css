@@ -11,9 +11,10 @@ body {
     margin-top: -64px;
     background: rgb(18, 18, 18);
     background: linear-gradient(0deg, rgba(18, 18, 18, 1) 0%, rgba(55, 9, 9, 1) 56%);
-    width: 100%;
+    width: calc(100vw - 230px);
     z-index: -1;
 }
+
 
 header {
     background-color: transparent;
