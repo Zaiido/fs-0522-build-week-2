@@ -412,7 +412,7 @@ a.dropdown-item:hover {
 
 .slider_container {
     /* width: 75%; */
-    max-width: 400px;
+    max-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -452,7 +452,7 @@ a.dropdown-item:hover {
 }
 
 .seek_slider {
-    max-width: 60%;
+    width: 200px;
     margin-inline: 1em;
 
 }
