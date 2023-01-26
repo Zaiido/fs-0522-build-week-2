@@ -263,7 +263,31 @@ div.nav-item {
     animation-name: backgroundChange;
     animation-duration: 1s;
 }
+/* #navbar-bottom svg path {
+    fill: var(--grey-color);
+}
+#navbar-bottom #play svg path, #stop svg path {
+    color: initial;
+} */
+.nav-icon svg path{
+    fill: var(--grey-color);
+}
+.nav-icon:hover svg path {
+    fill: white;
+}
 
+.item path {
+    fill: var(--grey-color);
+}
+.item:hover  path {
+    fill: white;
+}
+.item-2 path {
+    fill: var(--grey-color);
+}
+.item-2:hover  path {
+    fill: white;
+}
 @keyframes backgroundChange {
     from {
         background-color: transparent;
