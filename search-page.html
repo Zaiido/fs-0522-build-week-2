@@ -43,11 +43,7 @@
           <hr />
           <ul class="nav nav-pills flex-column mb-2">
             <li class="nav-item">
-              <a
-                href="homepage.html"
-                class="nav-link text-white"
-                aria-current="page"
-              >
+              <a href="homepage.html" class="nav-link text-white">
                 <svg
                   role="img"
                   class="mr-2"
@@ -62,11 +58,11 @@
                     d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z"
                   ></path>
                 </svg>
-                Home
+                <span class="text">Home</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-white">
+              <a href="#" class="nav-link text-white" aria-current="page">
                 <svg
                   role="img"
                   class="mr-2 nav-image"
@@ -81,7 +77,7 @@
                     d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"
                   ></path>
                 </svg>
-                <span class="text">Search</span>
+                Search
               </a>
             </li>
             <li class="nav-item">
@@ -207,6 +203,7 @@
                   type="text"
                   id="search-input"
                   placeholder="What do you want to listen to?"
+                  onkeyup="getSongs()"
                 />
               </div>
 
@@ -309,19 +306,50 @@
         </header>
         <section class="container-fluid flex-column mx-4" id="search-container">
           <div class="search-song">
-            <h3>Songs</h3>
+            <h3>Search results</h3>
             <div
               id="search-song-results"
-              class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 flex-nowrap"
+              class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"
             ></div>
           </div>
-          <div class="search-artist">
-            <h3>Artists</h3>
-            <div id="search-artist-results" class="row"></div>
+        </section>
+        <section class="album-footer container-fluid">
+          <div class="footer-top row">
+            <div class="col-3 links">
+              <h6>Company</h6>
+              <a href="#" class="link">Impressum</a>
+              <a href="#" class="link">About</a>
+              <a href="#" class="link">Jobs</a>
+              <a href="#" class="link">For the Records</a>
+            </div>
+
+            <div class="col-3 links">
+              <h6>Communities</h6>
+              <a href="#" class="link">For Artists</a>
+              <a href="#" class="link">Developers</a>
+              <a href="#" class="link">Advertising</a>
+              <a href="#" class="link">Investors</a>
+              <a href="#" class="link">Vendors</a>
+            </div>
+            <div class="col-3 links">
+              <h6>Useful links</h6>
+              <a href="#" class="link">Support</a>
+              <a href="#" class="link">Free Mobile App</a>
+              <a href="#" class="link">Verträge hier kündigen</a>
+            </div>
+            <div class="col-3 social-links">
+              <a href="#" class="link"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="link"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="link"><i class="bi bi-facebook"></i></a>
+            </div>
           </div>
-          <div class="search-album">
-            <h3>Albums</h3>
-            <div id="search-album-results" class="row"></div>
+          <div class="footer-bottom row">
+            <a href="#" class="footer-bottom-link">Legal</a>
+            <a href="#" class="footer-bottom-link">Privacy Center</a>
+            <a href="#" class="footer-bottom-link">Privacy Settings</a>
+            <a href="#" class="footer-bottom-link">Cookie Settings</a>
+            <a href="#" class="footer-bottom-link">About Ads</a>
+            <span class="spotifyCopyRight">© 2023 Spotify AB</span>
           </div>
         </section>
       </div>
