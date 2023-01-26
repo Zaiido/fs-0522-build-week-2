@@ -1,4 +1,7 @@
+
 const toggleProfileDropdown = () => {
+    let user = localStorage.getItem('userEmailOrName');
+    document.querySelector(".profile-name").innerText = user;
     let profileNode = document.querySelector(".profile")
     profileNode.addEventListener("click", () => {
         let svgNode = document.querySelector(".down-arrow")
@@ -14,4 +17,7 @@ const toggleProfileDropdown = () => {
     })
 }
 
+
+
 toggleProfileDropdown()
+
