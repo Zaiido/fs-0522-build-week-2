@@ -37,25 +37,34 @@
       </a>
     </header>
     <main>
-      <div class="container">
-        <div class="login-socials">
+      <div
+        class="mx-auto main-container d-flex flex-column justify-content-center text-center"
+      >
+        <div class="login-socials mt-4 d-flex flex-column">
           <p>To continue, log in to Spotify.</p>
-          <button class="btn">CONTINUE WITH FACEBOOK</button>
-          <button class="btn">CONTINUE WITH APPLE</button>
+          <button class="btn btn-fb">
+            <i class="bi bi-facebook"></i>CONTINUE WITH FACEBOOK
+          </button>
+          <button class="btn btn-apple">
+            <i class="bi bi-apple"></i>CONTINUE WITH APPLE
+          </button>
           <span class="or">OR</span>
         </div>
-        <div class="login-email">
+        <div class="login-email mt-2 d-flex flex-column">
           <input type="text" placeholder="Email address or username" />
           <input type="password" placeholder="Password" />
-          <div>
-            <input type="checkbox" name="Remember me" />
-            <button class="btn">LOG IN</button>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="checkbox">
+              <input type="checkbox" name="Remember me" id="rememberMe" />
+              <label for="rememberMe">Remember me</label>
+            </div>
+            <button class="btn btn-login">LOG IN</button>
           </div>
-          <a href="#">Forgot your password?</a>
+          <a href="#" class="forgot-password">Forgot your password?</a>
         </div>
         <div class="sign-up">
           <p>Don't have an account?</p>
-          <button class="btn">SIGN UP FOR SPOTIFY</button>
+          <button class="btn btn-sign-up">SIGN UP FOR SPOTIFY</button>
         </div>
         <div class="bottom-info">
           <p>
