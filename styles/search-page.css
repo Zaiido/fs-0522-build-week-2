@@ -9,9 +9,11 @@ body {
   height: 400px;
   margin-top: -64px;
   background: rgb(18, 18, 18);
-  background: linear-gradient(0deg,
-      rgba(18, 18, 18, 1) 0%,
-      rgba(55, 9, 9, 1) 56%);
+  background: linear-gradient(
+    0deg,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(55, 9, 9, 1) 56%
+  );
   width: 100%;
   z-index: -1;
 }
@@ -63,13 +65,13 @@ h2 {
   font-weight: 700;
 }
 
-h4+span {
+h4 + span {
   color: rgb(179, 179, 179);
   font-size: 12px;
   letter-spacing: 0.5px;
 }
 
-h4+span:hover {
+h4 + span:hover {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -298,7 +300,6 @@ a.dropdown-item:hover {
   color: var(--clr-grey-text);
 }
 
-
 .bg-color {
   background-color: black;
   animation-name: backgroundChange;
@@ -313,4 +314,47 @@ a.dropdown-item:hover {
   to {
     background-color: black;
   }
+}
+
+/* PLACEHOLER */
+
+#search-container .placeholder .card {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: none;
+  pointer-events: none;
+}
+
+#search-container a:hover {
+  text-decoration: none;
+}
+
+#search-container .placeholder .card .card-title {
+  font-size: 1.5rem;
+}
+
+#search-container .placeholder .random-picture-container {
+  rotate: 25deg;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.pink {
+  background-color: pink;
+}
+.blue {
+  background-color: blue;
+}
+.purple {
+  background-color: purple;
+}
+.orange {
+  background-color: orange;
+}
+.silver {
+  background-color: silver;
+}
+.turquoise {
+  background-color: turquoise;
 }
