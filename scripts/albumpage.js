@@ -78,7 +78,7 @@ const displayAlbum = async (album) => {
                         class="artist-img"
                     />
                     <span>
-                        <a href="./artist.html?id=${album.artist.id}">${
+                        <a href="./artist.html?name=${album.artist.name}">${
       album.artist.name
     }</a>
                     </span>
