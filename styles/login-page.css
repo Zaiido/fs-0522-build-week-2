@@ -34,30 +34,31 @@ header .spotify-logo {
   border-radius: 50px;
 }
 
-/* .or-container {
-  width: 102%;
-} */
+.or-container {
+  width: 100%;
+}
 
 .or {
   margin-inline: 10px;
 }
 
-.line {
+/* .line {
   letter-spacing: -3px;
   color: gray;
   font-weight: 100;
-}
+} */
 
-/* .line {
+.line {
   border-bottom: 1px solid gray;
   color: white;
   position: relative;
   top: -10px;
+  user-select: none;
 }
 
 .line-left {
-  margin-left: -10px;
-} */
+  margin-left: -3px;
+}
 
 /* login email */
 .login-email {
