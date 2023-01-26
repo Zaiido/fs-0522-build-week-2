@@ -1,7 +1,7 @@
 // const link = " https://striveschool-api.herokuapp.com/api/deezer/artist/412";
 const linksongs = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 const params = new URLSearchParams(location.search);
-const id = params.get("id");
+const id = params.get("name");
 // const getDataArtist = () => {
 //   fetch(link)
 //     .then((dataRaw) => dataRaw.json())
