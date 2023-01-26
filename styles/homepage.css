@@ -18,7 +18,8 @@ body {
 header {
     background-color: transparent;
     position: sticky;
-    top: 1rem;
+    top: 0;
+    padding-block: 1px;
     z-index: 2;
 }
 
@@ -189,52 +190,8 @@ h4+span:hover {
     opacity: 1;
 }
 
-.truncate {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .card a:nth-of-type(2):hover {
     text-decoration: underline;
-}
-
-/* PROFILE DROPDOWN MENU */
-
-.dropdown-menu {
-    display: block;
-    background-color: #282828;
-    right: 0;
-    left: auto;
-    margin-right: 2.5rem;
-    padding-inline: 10px;
-}
-
-.dropdown-menu a {
-    color: white;
-    font-size: 15px;
-}
-
-.dropdown-menu svg {
-    opacity: 1;
-    margin-left: 10px;
-}
-
-.dropdown-menu hr {
-    border: none;
-    border-bottom: 1px rgba(136, 136, 136, 0.419) solid;
-}
-
-a.dropdown-item:hover {
-    color: white;
-    background-color: #e9ecef2d;
-    border-radius: 2px;
-}
-
-.dropdown-item:focus {
-    background-color: transparent;
-    color: white;
 }
 
 
@@ -257,5 +214,24 @@ a.dropdown-item:hover {
     .row:not(:first-of-type) .col-12:nth-child(5),
     .row:not(:first-of-type) .col-12:nth-child(4) {
         display: none;
+    }
+}
+
+
+/* HEADER BACKGROUND */
+
+.bg-color {
+    background-color: #370909;
+    animation-name: backgroundChange;
+    animation-duration: 1s;
+}
+
+@keyframes backgroundChange {
+    from {
+        background-color: transparent;
+    }
+
+    to {
+        background-color: #370909;
     }
 }
