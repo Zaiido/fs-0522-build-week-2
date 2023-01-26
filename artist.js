@@ -91,7 +91,7 @@ const renderMoreSongs = async (songs) => {
     } = await iterator;
 
     containerList.innerHTML += `
-    <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen(event); makeChange(event)')>
+    <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen(event);')>
     <th scope="row" class="grey row-btn">${i + 1}</th>
     <td>
     <img class="p-1" src="${
@@ -140,12 +140,6 @@ const makeGreen = () => {
       this.className += " active-text";
     });
   }
-};
-
-const makeChange = (event) => {
-  const rowTo = event.target.parentElement.parentElement.firstElementChild;
-
-  rowTo.innerHTML = `<i class="bi bi-play-fill"></i>`;
 };
 
 window.onload = () => {
