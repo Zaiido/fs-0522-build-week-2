@@ -1,0 +1,147 @@
+/* header */
+header {
+  text-align: center;
+  border-bottom: 1px solid grey;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+header .spotify-logo {
+  color: black;
+}
+
+/* main */
+.main-container {
+  max-width: 450px;
+}
+
+/* login socials */
+.login-socials .bi {
+  margin-right: 10px;
+}
+
+.btn-fb {
+  background-color: #3f5898;
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 50px;
+}
+
+.btn-apple {
+  background-color: black;
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 50px;
+}
+
+.or-container {
+  width: 100%;
+}
+
+.or {
+  margin-inline: 10px;
+}
+
+/* .line {
+  letter-spacing: -3px;
+  color: gray;
+  font-weight: 100;
+} */
+
+.line {
+  border-bottom: 1px solid gray;
+  color: white;
+  position: relative;
+  top: -10px;
+  user-select: none;
+}
+
+.line-left {
+  margin-left: -3px;
+}
+
+/* login email */
+.login-email {
+  border-bottom: 1px solid grey;
+}
+
+.login-email input {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+}
+
+.login-email input:focus {
+  outline-color: black;
+}
+
+.checkbox label {
+  color: grey;
+}
+
+.btn-login {
+  color: white;
+  padding: 10px 50px;
+  border-radius: 50px;
+  font-size: smaller;
+  background-color: #48b850;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #48b850;
+  color: white;
+}
+
+.forgot-password {
+  color: #48b850;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.forgot-password:hover {
+  color: #48b850;
+}
+
+/* sign up */
+.sign-up p {
+  margin-top: 35px;
+  font-weight: 900;
+  font-size: larger;
+}
+
+.btn-sign-up {
+  border: 2px solid black;
+  border-radius: 50px;
+  width: 100%;
+}
+
+.sign-up {
+  border-bottom: 1px solid grey;
+  padding-bottom: 30px;
+}
+
+/* bottom */
+.bottom-info {
+  margin-top: 20px;
+  font-size: 11px;
+}
+
+.bottom-info a {
+  color: #48b850;
+  font-weight: 900;
+}
+
+/* btn hover */
+
+.btn:hover {
+  transform: scale(1.01);
+  color: white;
+}
+
+.btn.btn-sign-up:hover {
+  color: black;
+}
+
+
+.required::-webkit-input-placeholder {
+  color: red;
+}
