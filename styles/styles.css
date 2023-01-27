@@ -384,6 +384,12 @@ a.dropdown-item:hover {
     text-overflow: ellipsis;
 }
 
+.truncate2 {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /* music player */
 
@@ -470,6 +476,7 @@ a.dropdown-item:hover {
 .navbar.fixed-bottom {
     border-top: 1px solid #80808057;
 }
+
 .set-width {
     width: 30%;
-  }
+}
