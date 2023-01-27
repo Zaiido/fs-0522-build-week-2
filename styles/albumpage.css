@@ -410,3 +410,7 @@ svg {
 .plau-buttons-container #stop svg {
   fill: inherit;
 }
+
+#stop svg {
+  opacity: 1;
+}
