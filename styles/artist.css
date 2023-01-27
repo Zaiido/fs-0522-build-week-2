@@ -82,7 +82,6 @@ body {
     rgba(82, 82, 82, 1) 96%
   );
   width: 100vw;
-  margin-bottom: 3.5em;
   font-size: 0.9rem;
 }
 
@@ -281,5 +280,83 @@ div.nav-item {
 
   to {
     background-color: #434040;
+  }
+}
+
+/* footer */
+.album-footer {
+  margin-left: 0;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 7rem;
+  background-color: rgb(25, 25, 25);
+}
+
+.album-footer-top {
+  margin-bottom: 2.5rem;
+  margin-left: -1.5rem;
+}
+
+.album-footer .links {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+}
+
+.album-footer .links .link {
+  color: var(--clr-grey-text);
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  margin-left: 0;
+  width: 175px;
+  margin-top: 10px;
+}
+
+.social-links .link {
+  color: var(--clr-text);
+  background-color: #252525;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--clr-grey-text);
+  padding-top: 3rem;
+}
+
+.footer-bottom-link {
+  color: var(--clr-grey-text);
+  margin-right: 15px;
+  min-width: 50px;
+}
+
+.spotifyCopyRight {
+  margin-left: auto;
+  margin-right: 15px;
+  color: var(--clr-grey-text);
+}
+
+@media (min-width: 1080px) {
+  .album-footer .links {
+    max-width: 20%;
+  }
+  .album-footer .social-links {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 967px) {
+  .spotifyCopyRight {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 815px) {
+  .footer-bottom-link {
+    display: none;
   }
 }
