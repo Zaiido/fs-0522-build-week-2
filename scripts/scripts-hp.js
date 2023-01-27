@@ -7,9 +7,11 @@ let artistsArray = ["eminem", "queen", "metallica", "drake", "marc antony", "wit
 
 window.onload = async () => {
     try {
+        greeting()
         mainFunction()
 
         playButtonFunctionality()
+
 
     } catch (error) {
         console.log(error)
@@ -359,7 +361,7 @@ const changeBackgroundColor = () => {
     let r = localStorage.getItem("r");
     let g = localStorage.getItem("g");
     let b = localStorage.getItem("b");
-    console.log(r, g, b)
+    // console.log(r, g, b)
     backgroundNode.style.background = `linear-gradient(0deg, rgba(18, 18, 18, 1) 0%, rgba(${r}, ${g}, ${b}, 1) 56%)`;
 }
 
@@ -368,9 +370,6 @@ const main = (eventData) => {
     let canvas;
     if (eventData.target.tagName === "IMG") {
         image = eventData.target;
-    } else if (eventData.target.tagName === "SPAN") {
-        console.log(eventData.target.parentElement.querySelector("img"))
-        image = eventData.target.parentElement.querySelector("img")
     } else {
         image = eventData.target.querySelector("img");
     }
@@ -418,3 +417,17 @@ const buildRgb = (imageData) => {
 
 
 
+// HOMEPAGE GREETING
+
+const greeting = () => {
+    let greetingNode = document.querySelector("h2")
+    let today = new Date();
+    if (today.getHours() < 12) {
+        greetingNode.innerText = "Good morning"
+    } else if (today.getHours() > 17) {
+        greetingNode.innerText = "Good evening"
+    } else {
+        greetingNode.innerText = "Good afternoon"
+
+    }
+}
