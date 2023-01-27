@@ -754,7 +754,7 @@
                             </svg></div>
                         <div class="pb-1">
 
-                            <button class="play" id="play" onclick="playpauseTrack()"
+                            <button class="play" id="play" onclick="playpauseTrack(); return false"
                                 src="https://cdns-preview-1.dzcdn.net/stream/c-17597947a0fdd6e8ea971f146755cd34-13.mp3"
                                 aria-label="Play" data-testid="control-button-playpause" style="--button-size:32px;"
                                 aria-expanded="false">
@@ -765,7 +765,7 @@
                                     </path>
                                 </svg>
                             </button>
-                            <button id="stop" class="d-none" onclick="playpauseTrack()" aria-label="Pause"
+                            <button id="stop" class="d-none" aria-label="Pause" onclick="playpauseTrack(); return false"
                                 data-testid="control-button-playpause" style="--button-size:32px;"
                                 aria-expanded="false">
                                 <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"
