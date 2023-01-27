@@ -1,5 +1,65 @@
 let url = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
+let categoryArr = [
+  "Potcast",
+  "Made For You",
+  "New releases",
+  "Hip-Hop",
+  "Pop",
+  "Mood",
+  "Rock",
+  "Charts",
+  "Live Events",
+  "Dance/Electronic",
+  "Chill",
+  "Indie",
+  "Fresh Finds",
+  "Discover",
+  "EQUAL",
+  "RADAR",
+  "Workout",
+  "K-pop",
+  "Sleep",
+  "Party",
+  "At Home",
+  "Focus",
+  "Decades",
+  "Latin",
+  "R&B",
+  "Romance",
+  "Kids & Family",
+  "Metal",
+  "Jazz",
+  "Trending",
+  "Anime",
+  "In the car",
+  "Classical",
+  "Folk & Acoustic",
+  "Country",
+  "Disney",
+  "Soul",
+  "Gaming",
+  "GLOW",
+  "TV & Movies",
+  "Netflix",
+  "Instrumental",
+  "Wellness",
+  "Punk",
+  "Ambient",
+  "Blues",
+  "Cooking & Dining",
+  "Alternative",
+  "Travel",
+  "Reggae",
+  "Caribbean",
+  "Afro",
+  "Songwriters",
+  "Funk & Disco",
+  "League of Legends",
+  "Spotify Singles",
+];
+console.log(categoryArr.length);
+
 const getSongs = async () => {
   try {
     let searchInput = document.querySelector("#search-input").value;
@@ -27,7 +87,7 @@ const showDefault = () => {
     <div class="col placeholder">
       <a href="#">
         <div class="card d-flex" style="background-color: ${color}">
-          <h3 class="card-title">Playlist ${i + 1}</h3>
+          <h3 class="card-title">${categoryArr[i]}</h3>
           <div class="random-picture-container">
             <img
             src="https://source.unsplash.com/random/100x100?sig=${i + 1}"
