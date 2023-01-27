@@ -292,9 +292,8 @@ div.nav-item {
   background-color: rgb(25, 25, 25);
 }
 
-.album-footer-top {
+.footer-top {
   margin-bottom: 2.5rem;
-  margin-left: -1.5rem;
 }
 
 .album-footer .links {
@@ -304,8 +303,9 @@ div.nav-item {
 }
 
 .album-footer .links .link {
-  color: var(--clr-grey-text);
+  color: grey;
   margin-bottom: 1rem;
+  text-decoration: none;
 }
 
 .social-links {
@@ -315,7 +315,7 @@ div.nav-item {
 }
 
 .social-links .link {
-  color: var(--clr-text);
+  color: white;
   background-color: #252525;
   border-radius: 50%;
   padding: 10px;
@@ -323,20 +323,21 @@ div.nav-item {
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--clr-grey-text);
+  border-top: 1px solid grey;
   padding-top: 3rem;
 }
 
 .footer-bottom-link {
-  color: var(--clr-grey-text);
+  color: grey;
   margin-right: 15px;
   min-width: 50px;
+  text-decoration: none;
 }
 
 .spotifyCopyRight {
   margin-left: auto;
   margin-right: 15px;
-  color: var(--clr-grey-text);
+  color: grey;
 }
 
 @media (min-width: 1080px) {
