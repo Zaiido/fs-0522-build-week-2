@@ -284,6 +284,11 @@ function playTrack() {
   const stopContainer = document.getElementById("stop");
   PlayIconContainer.classList.add("d-none");
   stopContainer.classList.remove("d-none");
+  let play = document.getElementById("ButtonInner-play");
+  let stop = document.getElementById("ButtonInner-stop");
+
+  play.classList.add("d-none");
+  stop.classList.remove("d-none");
 }
 
 function pauseTrack() {
@@ -294,6 +299,11 @@ function pauseTrack() {
   const stopContainer = document.getElementById("stop");
   PlayIconContainer.classList.remove("d-none");
   stopContainer.classList.add("d-none");
+  let play = document.getElementById("ButtonInner-play");
+  let stop = document.getElementById("ButtonInner-stop");
+
+  stop.classList.add("d-none");
+  play.classList.remove("d-none");
 
   // Replace icon with the play icon
 }
@@ -385,3 +395,23 @@ function seekUpdate() {
 
 // Load the first track in the tracklist
 loadTrack(track_index);
+
+function changeState() {
+  let play = document.getElementById("ButtonInner-play");
+  let stop = document.getElementById("ButtonInner-stop");
+  const PlayIconContainer = document.getElementById("play");
+  const stopContainer = document.getElementById("stop");
+  if (stop.classList.contains("d-none")) {
+    play.classList.add("d-none");
+    stop.classList.remove("d-none");
+    PlayIconContainer.classList.add("d-none");
+    stopContainer.classList.remove("d-none");
+    playTrack();
+  } else {
+    stop.classList.add("d-none");
+    play.classList.remove("d-none");
+    PlayIconContainer.classList.remove("d-none");
+    stopContainer.classList.add("d-none");
+    pauseTrack();
+  }
+}

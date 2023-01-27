@@ -383,3 +383,30 @@ svg {
     display: none;
   }
 }
+
+.play-button {
+  fill: #1ED760;
+  background-color: #1ED760;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.play-button:focus {
+  box-shadow: none;
+}
+
+.play-button:hover {
+  background-color: #1FDF64;
+  scale: 1.05;
+}
+
+.play-button svg {
+  fill: black;
+  opacity: 1;
+}
+
+.plau-buttons-container #stop svg {
+  fill: inherit;
+}

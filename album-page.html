@@ -203,9 +203,26 @@
         <div class="top-album" id="top-album-info"></div>
         <div class="top-album-buttons">
           <div class="top-play-button-container">
-            <span class="top-play-button">
-              <i class="bi bi-play-circle-fill"></i>
-            </span>
+            <button class="btn play-button ml-auto mr-3" onclick="changeState(); return false">
+              <span class="ButtonInner-play dpREpp encore-bright-accent-set"
+                  id="ButtonInner-play"><span aria-hidden="true"
+                      class="IconWrapper__Wrapper-sc-1hf1hjl-0 fSnHJ"><svg role="img"
+                          height="28" width="28" aria-hidden="true" viewBox="0 0 24 24"
+                          data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
+                          <path
+                              d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                          </path>
+                      </svg></span></span>
+              <span class="ButtonInner-stop-0 dpREpp encore-bright-accent-set d-none"
+                  id="ButtonInner-stop"><span aria-hidden="true"
+                      class="IconWrapper__Wrapper-sc-1hf1hjl-0 fSnHJ"><svg role="img"
+                          height="28" width="28" aria-hidden="true" viewBox="0 0 24 24"
+                          data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
+                          <path
+                              d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z">
+                          </path>
+                      </svg></span></span>
+              </svg>
           </div>
 
           <span class="top-heart-button">
@@ -336,7 +353,7 @@
                   d="M3.3 1a.7.7 0 01.7.7v5.15l9.95-5.744a.7.7 0 011.05.606v12.575a.7.7 0 01-1.05.607L4 9.149V14.3a.7.7 0 01-.7.7H1.7a.7.7 0 01-.7-.7V1.7a.7.7 0 01.7-.7h1.6z">
                 </path>
               </svg></div>
-            <div class="pb-1">
+            <div class="pb-1 play-buttons-container">
 
               <button class="play pb-1" id="play" onclick="playpauseTrack(); return false" aria-label="Play"
                 data-testid="control-button-playpause" style="--button-size:32px;" aria-expanded="false"><svg role="img"
@@ -396,7 +413,7 @@
               </path>
               <path d="M13 10a2 2 0 11-4 0 2 2 0 014 0zm-1-5a1 1 0 11-2 0 1 1 0 012 0z"></path>
             </svg></div>
-          <div class="nav-icon" id="mute" onclick="mute()"><svg " role=" presentation" height="16" width="16"
+          <div class="nav-icon" id="mute" onclick="mute(); return false"><svg " role=" presentation" height="16" width="16"
               aria-hidden="true" aria-label="Volume high" id="volume-icon" viewBox="0 0 16 16" data-encore-id="icon"
               class="Svg-sc-ytk21e-0 uPxdw">
               <path
@@ -404,7 +421,7 @@
               </path>
               <path d="M11.5 13.614a5.752 5.752 0 000-11.228v1.55a4.252 4.252 0 010 8.127v1.55z"></path>
             </svg></div>
-          <div class="nav-icon d-none" id="unmute" onclick="unMute()">
+          <div class="nav-icon d-none" id="unmute" onclick="unMute(); return false">
             <svg role="presentation" height="16" width="16" aria-hidden="true" aria-label="Volume off" id="volume-icon"
               viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
               <path
@@ -417,7 +434,7 @@
           </div>
           <div class="slider_container-volume">
 
-            <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+            <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume(); return false">
 
           </div>
           <div class="nav-icon"><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16"
