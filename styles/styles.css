@@ -465,3 +465,8 @@ a.dropdown-item:hover {
 .volume_slider {
     width: 50%;
 }
+
+
+.navbar.fixed-bottom {
+    border-top: 1px solid #80808057;
+}
