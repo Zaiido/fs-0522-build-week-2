@@ -15,12 +15,13 @@ window.onload = async () => {
         console.log(error)
     }
 
+}
+
 const mainFunction = async () => {
     allSongsArray = await getSongsPerArtist()
     // console.log(allSongsArray)
 
     removeDuplicates(allSongsArray)
-
 
     shuffleSongs(allSongsArray)
 
@@ -33,7 +34,6 @@ const getSongsPerArtist = async () => {
         for (let song of songs) {
             // console.log(song)
             allSongsArray.push(song)
-
 
         }
     }
@@ -112,16 +112,8 @@ const renderSongs = (song) => {
 const getSongs = async (query) => {
     try {
         let response = await fetch(url + query);
-        if (response.ok) {
-            let songs = await response.json();
-            return songs.data
-
-
-        } 
-        else {
-
-            mainFunction()
-        }
+        let songs = await response.json();
+        return songs.data
     } catch (error) {
         console.log(error)
     }
@@ -367,7 +359,7 @@ const changeBackgroundColor = () => {
     let r = localStorage.getItem("r");
     let g = localStorage.getItem("g");
     let b = localStorage.getItem("b");
-    // console.log(r, g, b)
+    console.log(r, g, b)
     backgroundNode.style.background = `linear-gradient(0deg, rgba(18, 18, 18, 1) 0%, rgba(${r}, ${g}, ${b}, 1) 56%)`;
 }
 
@@ -377,7 +369,7 @@ const main = (eventData) => {
     if (eventData.target.tagName === "IMG") {
         image = eventData.target;
     } else if (eventData.target.tagName === "SPAN") {
-        // console.log(eventData.target.parentElement.querySelector("img"))
+        console.log(eventData.target.parentElement.querySelector("img"))
         image = eventData.target.parentElement.querySelector("img")
     } else {
         image = eventData.target.querySelector("img");
