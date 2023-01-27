@@ -4,8 +4,10 @@ let artistsArray = ["eminem", "queen", "metallica", "drake", "marc antony", "wit
 
 
 
+window.history.forward();
 
 window.onload = async () => {
+
     try {
         greeting()
         mainFunction()
