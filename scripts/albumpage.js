@@ -394,12 +394,14 @@ function seekUpdate() {
     seek_slider.value = seekPosition;
 
     // Calculate the time left and the total duration
-    let currentMinutes = Math.ceil(curr_track.currentTime / 60);
-    let currentSeconds = Math.ceil(
+    let currentMinutes = Math.floor(curr_track.currentTime / 60);
+    let currentSeconds = Math.floor(
       curr_track.currentTime - currentMinutes * 60
     );
-    let durationMinutes = Math.ceil(curr_track.duration / 60);
-    let durationSeconds = Math.ceil(curr_track.duration - durationMinutes * 60);
+    let durationMinutes = Math.floor(curr_track.duration / 60);
+    let durationSeconds = Math.floor(
+      curr_track.duration - durationMinutes * 60
+    );
 
     // Add a zero to the single digit time values
     if (currentSeconds < 10) {
