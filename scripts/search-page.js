@@ -156,3 +156,5 @@ window.onscroll = () => {
 window.onload = () => {
   showDefault();
 };
+
+window.history.forward();
