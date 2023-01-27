@@ -17,7 +17,5 @@ const toggleProfileDropdown = () => {
     })
 }
 
-
-window.history.forward();
 toggleProfileDropdown()
 
