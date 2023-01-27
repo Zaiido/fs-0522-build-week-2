@@ -243,7 +243,7 @@ const defaultLoad = (track_index) => {
   fetch(url + id)
     .then((dataRaw) => dataRaw.json())
     .then((data) => {
-      const datamined = data.data;
+      const datamined = data.tracks.data;
       console.log(datamined);
       // Clear the previous seek timer
       clearInterval(updateTimer);
