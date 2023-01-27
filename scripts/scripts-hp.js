@@ -6,6 +6,8 @@ let artistsArray = ["eminem", "queen", "metallica", "drake", "marc antony", "wit
 
 
 window.onload = async () => {
+    window.history.forward();
+
     try {
         greeting()
         mainFunction()
