@@ -339,6 +339,13 @@ div.nav-item {
   margin-right: 15px;
   color: grey;
 }
+.table  .active-text {
+    color: #1ed760;
+  
+  }
+  table .active-icon {
+    background-color: rgba(86, 83, 83, 0.575);
+  }
 
 @media (min-width: 1080px) {
   .album-footer .links {
