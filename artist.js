@@ -239,6 +239,11 @@ function playTrack() {
   const stopContainer = document.getElementById("stop");
   PlayIconContainer.classList.add("d-none");
   stopContainer.classList.remove("d-none");
+  let play = document.getElementById("ButtonInner-play");
+  let stop = document.getElementById("ButtonInner-stop");
+
+  play.classList.add("d-none");
+  stop.classList.remove("d-none");
 }
 
 function pauseTrack() {
@@ -249,9 +254,14 @@ function pauseTrack() {
   const stopContainer = document.getElementById("stop");
   PlayIconContainer.classList.remove("d-none");
   stopContainer.classList.add("d-none");
+  let play = document.getElementById("ButtonInner-play");
+  let stop = document.getElementById("ButtonInner-stop");
 
-  // Replace icon with the play icon
+  stop.classList.add("d-none");
+  play.classList.remove("d-none");
 }
+
+// Replace icon with the play icon
 
 function nextTrack() {
   // Go back to the first track if the
