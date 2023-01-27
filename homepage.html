@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/homepage.css">
 
-
 </head>
 
 <body>
@@ -216,10 +215,13 @@
 
                             <div class="pl-0 pr-3 mb-3 col-12 col-sm-6 col-md-4 col-lg-4">
                                 <a href="album-page.html?id=1232880">
-                                    <div class="d-flex align-items-center menu-container">
+                                    <div class="d-flex align-items-center menu-container" onmouseover="main(event)"
+                                        onmouseleave="back()">
                                         <div class="menu-image mr-3">
                                             <img src="https://e-cdns-images.dzcdn.net/images/cover/fa63381faefb51fba501498bc836765a/250x250-000000-80-0-0.jpg"
                                                 alt="Album Cover">
+                                            <canvas>
+                                            </canvas>
                                         </div>
                                         <span class="mr-1">Greatest Hits</span>
                                         <button class="btn play-button ml-auto mr-3">
@@ -236,10 +238,12 @@
 
                             <div class="pl-0 pr-3 mb-3 col-12 col-sm-6 col-md-4 col-lg-4">
                                 <a href="album-page.html?id=220453">
-                                    <div class="d-flex align-items-center menu-container">
+                                    <div class="d-flex align-items-center menu-container"
+                                        onmouseover="main(event),changeBackgroundColor()" onmouseleave="back()">
                                         <div class="menu-image mr-3">
                                             <img src="https://i.scdn.co/image/ab67706f0000000200982b0a2b59c246d3b1d46b"
                                                 alt="Album Cover">
+                                            <canvas></canvas>
                                         </div>
                                         <span class="mr-1">Heart Beats</span>
                                         <button class="btn play-button ml-auto mr-3">
@@ -255,10 +259,12 @@
                             </div>
                             <div class="pl-0 pr-3 mb-3 col-12 col-sm-6 col-md-4 col-lg-4">
                                 <a href="album-page.html?id=14581972">
-                                    <div class="d-flex align-items-center menu-container">
+                                    <div class="d-flex align-items-center menu-container"
+                                        onmouseover="main(event),changeBackgroundColor()" onmouseleave="back()">
                                         <div class="menu-image mr-3">
                                             <img src="https://e-cdns-images.dzcdn.net/images/cover/291e2af9295ca885b154eee75dfa0432/250x250-000000-80-0-0.jpg"
                                                 alt="Album Cover">
+                                            <canvas></canvas>
                                         </div>
                                         <span class="mr-1">Rock</span>
                                         <button class="btn play-button ml-auto mr-3">
@@ -274,10 +280,12 @@
                             </div>
                             <div class="pl-0 pr-3 mb-3 col-12 col-sm-6 col-md-4 col-lg-4">
                                 <a href="album-page.html?id=7776833">
-                                    <div class="d-flex align-items-center menu-container">
+                                    <div class="d-flex align-items-center menu-container"
+                                        onmouseover="main(event),changeBackgroundColor()" onmouseleave="back()">
                                         <div class="menu-image mr-3">
                                             <img src="https://e-cdns-images.dzcdn.net/images/cover/fad0dd777fb660bb1c3388334afd8419/250x250-000000-80-0-0.jpg"
                                                 alt="Album Cover">
+                                            <canvas></canvas>
                                         </div>
                                         <span class="mr-1">Michael Jackson</span>
                                         <button class="btn play-button ml-auto mr-3">
@@ -293,10 +301,12 @@
                             </div>
                             <div class="pl-0 pr-3 mb-3 col-12 col-sm-6 col-md-4 col-lg-4">
                                 <a href="album-page.html?id=72143">
-                                    <div class="d-flex align-items-center menu-container">
+                                    <div class="d-flex align-items-center menu-container"
+                                        onmouseover="main(event),changeBackgroundColor()" onmouseleave="back()">
                                         <div class="menu-image mr-3">
                                             <img src="https://e-cdns-images.dzcdn.net/images/cover/51bc638c793784b7131748cde1e77cb5/250x250-000000-80-0-0.jpg"
                                                 alt="Album Cover">
+                                            <canvas></canvas>
                                         </div>
                                         <span class="mr-1">Latin</span>
                                         <button class="btn play-button ml-auto mr-3">
@@ -765,6 +775,7 @@
                                     </path>
                                 </svg>
                             </button>
+
                             <button id="stop" class="d-none" aria-label="Pause" onclick="playpauseTrack(); return false"
                                 data-testid="control-button-playpause" style="--button-size:32px;"
                                 aria-expanded="false">

@@ -4,6 +4,7 @@ let artistsArray = ["eminem", "queen", "metallica", "drake", "marc antony", "wit
 
 
 
+
 window.onload = async () => {
     try {
         mainFunction()
@@ -13,9 +14,6 @@ window.onload = async () => {
     } catch (error) {
         console.log(error)
     }
-
-}
-
 
 const mainFunction = async () => {
     allSongsArray = await getSongsPerArtist()
@@ -35,6 +33,7 @@ const getSongsPerArtist = async () => {
         for (let song of songs) {
             // console.log(song)
             allSongsArray.push(song)
+
 
         }
     }
@@ -110,15 +109,17 @@ const renderSongs = (song) => {
 }
 
 
-
 const getSongs = async (query) => {
     try {
         let response = await fetch(url + query);
         if (response.ok) {
             let songs = await response.json();
             return songs.data
-        }
+
+
+        } 
         else {
+
             mainFunction()
         }
     } catch (error) {
@@ -154,7 +155,6 @@ const playButtonFunctionality = () => {
 
 }
 
-
 const scrollNavbar = () => {
     const headerNode = document.querySelector("header");
     if (window.scrollY >= 100) {
@@ -167,7 +167,6 @@ const scrollNavbar = () => {
 window.onscroll = () => {
     scrollNavbar();
 };
-
 
 
 
@@ -191,7 +190,6 @@ let updateTimer;
 
 // Create the audio element for the player
 let curr_track = document.createElement("audio");
-
 
 function loadTrack(song) {
     // Clear the previous seek timer
@@ -354,3 +352,77 @@ const updatePlayerArtist = (artist) => {
 };
 // Load the first track in the tracklist
 loadTrack(track_index);
+
+
+
+
+
+// BACKGROUND COLOR
+let backgroundNode = document.querySelector(".background-effect");
+const back = () => {
+    backgroundNode.style.background = `linear-gradient(0deg, rgba(18, 18, 18, 1) 0%, rgba(55, 9, 9, 1) 56%)`;
+}
+
+const changeBackgroundColor = () => {
+    let r = localStorage.getItem("r");
+    let g = localStorage.getItem("g");
+    let b = localStorage.getItem("b");
+    // console.log(r, g, b)
+    backgroundNode.style.background = `linear-gradient(0deg, rgba(18, 18, 18, 1) 0%, rgba(${r}, ${g}, ${b}, 1) 56%)`;
+}
+
+const main = (eventData) => {
+    let image;
+    let canvas;
+    if (eventData.target.tagName === "IMG") {
+        image = eventData.target;
+    } else if (eventData.target.tagName === "SPAN") {
+        // console.log(eventData.target.parentElement.querySelector("img"))
+        image = eventData.target.parentElement.querySelector("img")
+    } else {
+        image = eventData.target.querySelector("img");
+    }
+
+    image.crossOrigin = "Anonymous";
+
+    if (eventData.target.tagName === "IMG") {
+        canvas = eventData.target.nextElementSibling;
+    } else {
+        canvas = eventData.target.querySelector("canvas");
+    }
+
+    canvas.width = image.width;
+    canvas.height = image.height;
+    let ctx = canvas.getContext("2d");
+    ctx.drawImage(image, 0, 0);
+
+    let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    let rgbArray = buildRgb(imageData.data);
+    let { r, g, b } = rgbArray[0]
+    // console.log(r, g, b)
+    localStorage.setItem("r", r)
+    localStorage.setItem("g", g)
+    localStorage.setItem("b", b)
+    changeBackgroundColor()
+
+}
+
+const buildRgb = (imageData) => {
+    let rgbValues = [];
+    for (let i = 0; i < imageData.length; i += 4) {
+        let rgb = {
+            r: imageData[i],
+            g: imageData[i + 1],
+            b: imageData[i + 2],
+        };
+        rgbValues.push(rgb);
+    }
+    return rgbValues;
+};
+
+
+
+
+
+
