@@ -6,36 +6,7 @@ let artistsArray = ["eminem", "queen", "metallica", "drake", "marc antony", "wit
 
 window.onload = async () => {
     try {
-        for (let artist of artistsArray) {
-            let songs = await getSongs(artist)
-            for (let song of songs) {
-                // console.log(song)
-                allSongsArray.push(song)
-
-            }
-        }
-        //  REMOVE DUPLICATES 
-        for (let i = 0; i < allSongsArray.length - 1; i++) {
-            for (let j = i + 1; j < allSongsArray.length; j++) {
-                if (allSongsArray[i].album.title === allSongsArray[j].album.title) {
-                    allSongsArray.splice(j, 1)
-                    j--
-                }
-            }
-        }
-
-        // SHUFFLE THE ARRAY
-
-        for (let i = allSongsArray.length - 1; i > 0; i--) {
-            var y = Math.floor(Math.random() * i);
-            var temp = allSongsArray[i];
-            allSongsArray[i] = allSongsArray[y];
-            allSongsArray[y] = temp;
-        }
-
-        for (let i = 0; i < 18; i++) {
-            renderSongs(allSongsArray[i])
-        }
+        mainFunction()
 
         playButtonFunctionality()
 
@@ -43,6 +14,57 @@ window.onload = async () => {
         console.log(error)
     }
 
+}
+
+
+const mainFunction = async () => {
+    allSongsArray = await getSongsPerArtist()
+    // console.log(allSongsArray)
+
+    removeDuplicates(allSongsArray)
+
+
+    shuffleSongs(allSongsArray)
+
+    addCards(allSongsArray)
+}
+
+const getSongsPerArtist = async () => {
+    for (let artist of artistsArray) {
+        let songs = await getSongs(artist)
+        for (let song of songs) {
+            // console.log(song)
+            allSongsArray.push(song)
+
+        }
+    }
+    return allSongsArray
+}
+
+const removeDuplicates = (allSongsArray) => {
+    for (let i = 0; i < allSongsArray.length - 1; i++) {
+        for (let j = i + 1; j < allSongsArray.length; j++) {
+            if (allSongsArray[i].album.title === allSongsArray[j].album.title) {
+                allSongsArray.splice(j, 1)
+                j--
+            }
+        }
+    }
+}
+
+const addCards = (allSongsArray) => {
+    for (let i = 0; i < 18; i++) {
+        renderSongs(allSongsArray[i])
+    }
+}
+
+const shuffleSongs = (allSongsArray) => {
+    for (let i = allSongsArray.length - 1; i > 0; i--) {
+        var y = Math.floor(Math.random() * i);
+        var temp = allSongsArray[i];
+        allSongsArray[i] = allSongsArray[y];
+        allSongsArray[y] = temp;
+    }
 }
 
 
@@ -92,8 +114,13 @@ const renderSongs = (song) => {
 const getSongs = async (query) => {
     try {
         let response = await fetch(url + query);
-        let songs = await response.json();
-        return songs.data
+        if (response.ok) {
+            let songs = await response.json();
+            return songs.data
+        }
+        else {
+            mainFunction()
+        }
     } catch (error) {
         console.log(error)
     }
