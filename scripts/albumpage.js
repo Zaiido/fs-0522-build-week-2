@@ -240,7 +240,7 @@ let track_list = [
 ];
 
 const defaultLoad = (track_index) => {
-  fetch(linksongs + id)
+  fetch(url + id)
     .then((dataRaw) => dataRaw.json())
     .then((data) => {
       const datamined = data.data;
