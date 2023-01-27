@@ -331,6 +331,7 @@ a.dropdown-item:hover {
 
 #search-container .placeholder .card .card-title {
   font-size: 1.5rem;
+  text-shadow: #000000 1px 0px 4px;
 }
 
 #search-container .placeholder .random-picture-container {

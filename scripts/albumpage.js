@@ -85,9 +85,9 @@ const displayAlbum = async (album) => {
                     </span>
                     <span>· ${album.release_date} </span>
                     <span>· ${album.tracks.data.length} songs, </span>
-                    <span>${Math.floor(
-                      album.duration / 60 / 60
-                    )} h ${Math.floor(album.duration % 60)} min</span>
+                    <span>${Math.ceil(album.duration / 60 / 60)} h ${Math.ceil(
+      album.duration % 60
+    )} min</span>
                 </div>
             </div>`;
     // display songs
@@ -113,7 +113,7 @@ const displayAlbum = async (album) => {
         song.artist.name
       }">${song.artist.name}</a></span></td>
             <td><i class="bi bi-heart"></i></td>
-            <td>${Math.floor(song.duration / 60)} min ${
+            <td>${Math.ceil(song.duration / 60)} min ${
         song.duration % 60
       } sec</td>
         </tr>`;
@@ -394,14 +394,12 @@ function seekUpdate() {
     seek_slider.value = seekPosition;
 
     // Calculate the time left and the total duration
-    let currentMinutes = Math.floor(curr_track.currentTime / 60);
-    let currentSeconds = Math.floor(
+    let currentMinutes = Math.ceil(curr_track.currentTime / 60);
+    let currentSeconds = Math.ceil(
       curr_track.currentTime - currentMinutes * 60
     );
-    let durationMinutes = Math.floor(curr_track.duration / 60);
-    let durationSeconds = Math.floor(
-      curr_track.duration - durationMinutes * 60
-    );
+    let durationMinutes = Math.ceil(curr_track.duration / 60);
+    let durationSeconds = Math.ceil(curr_track.duration - durationMinutes * 60);
 
     // Add a zero to the single digit time values
     if (currentSeconds < 10) {
