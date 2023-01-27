@@ -215,8 +215,8 @@ const defaultLoad = (track_index) => {
 
       curr_track.load();
       updatePlayerCover(datamined[track_index].album.cover_medium);
-      updatePlayerName(datamined[track_index].album.title);
-      updatePlayerArtist(datamined[track_index].album.name);
+      updatePlayerName(datamined[track_index].title);
+      updatePlayerArtist(datamined[track_index].artist.name);
 
       // Set an interval of 1000 milliseconds
       // for updating the seek slider
@@ -316,7 +316,8 @@ function prevTrack() {
   // current one is the first in the track list
 
   // Load and play the new track
-  loadTrack(track_index);
+  track_index--;
+  defaultLoad(track_index);
   playTrack();
 }
 
