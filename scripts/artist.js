@@ -212,7 +212,11 @@ const defaultLoad = (track_index) => {
 
       // Load a new track
       curr_track.src = datamined[track_index].preview;
+
       curr_track.load();
+      updatePlayerCover(datamined[track_index].album.cover_medium);
+      updatePlayerName(datamined[track_index].album.title);
+      updatePlayerArtist(datamined[track_index].album.name);
 
       // Set an interval of 1000 milliseconds
       // for updating the seek slider
