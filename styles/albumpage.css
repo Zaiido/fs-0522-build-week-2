@@ -414,3 +414,13 @@ svg {
 #stop svg {
   opacity: 1;
 }
+.table  .active-text {
+  color: #1ed760;
+
+}
+table .active-icon {
+  background-color: rgba(86, 83, 83, 0.575);
+}
+.bi-music-note-beamed {
+  fill: white;
+}

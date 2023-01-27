@@ -103,12 +103,12 @@ const displayAlbum = async (album) => {
         preview,
       } = await iterator;
       songTableNode.innerHTML += `
-      <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}")'>
+      <tr class="table-row" onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen()'>
             <td>
                 <span class="song-number">${i + 1}</span>
                 <i class="bi bi-play-fill play-song-icon"></i>
             </td>
-            <td>${title}<br/><span><a href="./artist.html?name=${
+            <td class="song-btn">${title}<br/><span><a href="./artist.html?name=${
         song.artist.name
       }">${song.artist.name}</a></span></td>
             <td><i class="bi bi-heart"></i></td>
@@ -415,3 +415,23 @@ function changeState() {
     pauseTrack();
   }
 }
+
+const makeGreen = () => {
+  let header = document.getElementById("songTable");
+  let btns = header.getElementsByClassName("song-btn");
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      let current = document.getElementsByClassName("active-text");
+      let current2 = header.getElementsByClassName("active-icon");
+      if ((current2.length > 0) & (current.length > 0)) {
+        current2[0].className = current2[0].className.replace(
+          " active-icon",
+          ""
+        );
+        current[0].className = current[0].className.replace(" active-text", "");
+      }
+      this.parentElement.className += " active-icon";
+      this.className += " active-text";
+    });
+  }
+};
