@@ -10,9 +10,11 @@
 
 body {
   background: rgb(126, 45, 104, 1);
-  background: linear-gradient(180deg,
-      rgba(126, 45, 104, 1) 0%,
-      rgba(18, 18, 18, 1) 22%);
+  background: linear-gradient(
+    180deg,
+    rgba(126, 45, 104, 1) 0%,
+    rgba(18, 18, 18, 1) 22%
+  );
   color: var(--clr-text);
 }
 
@@ -36,9 +38,11 @@ main.album-container {
   margin-top: -5.2rem;
   padding: 5rem 0 1rem 2rem;
   background: rgb(89, 28, 72);
-  background: linear-gradient(0deg,
-      rgba(89, 28, 72, 1) 0%,
-      rgba(168, 59, 137) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(89, 28, 72, 1) 0%,
+    rgba(168, 59, 137) 100%
+  );
 }
 
 .album-cover-image {
@@ -220,17 +224,18 @@ main.album-container {
   margin-left: 0;
   padding-top: 2rem;
   padding-left: 2rem;
+  padding-bottom: 7rem;
 }
 
-.album-footer-top {
+.footer-top {
   margin-bottom: 2.5rem;
-  margin-left: -1.5rem;
+  margin-left: 15px;
 }
 
 .album-footer .links {
   display: flex;
   flex-direction: column;
-  max-width: 20%;
+  min-width: 30%;
 }
 
 .album-footer .links .link {
@@ -239,7 +244,9 @@ main.album-container {
 }
 
 .social-links {
-  margin-left: auto;
+  margin-left: 0;
+  width: 175px;
+  margin-top: 10px;
 }
 
 .social-links .link {
@@ -258,6 +265,8 @@ main.album-container {
 .footer-bottom-link {
   color: var(--clr-grey-text);
   margin-right: 15px;
+  min-width: 50px;
+  text-decoration: none;
 }
 
 .spotifyCopyRight {
@@ -296,6 +305,28 @@ main.album-container {
   .album-infos {
     overflow: hidden;
     width: 65%;
+  }
+}
+
+@media (min-width: 1080px) {
+  .album-footer .links {
+    min-width: 20%;
+  }
+  .album-footer .social-links {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 967px) {
+  .spotifyCopyRight {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 815px) {
+  .footer-bottom-link {
+    display: none;
   }
 }
 
@@ -359,14 +390,11 @@ svg {
   }
 }
 
-
 .dropdown-menu {
   margin-top: -15px;
 }
 
-
 @media (max-width: 767px) {
-
   .row:not(:first-of-type) .col-12:last-child,
   .row:not(:first-of-type) .col-12:nth-child(5),
   .row:not(:first-of-type) .col-12:nth-child(4),
@@ -376,7 +404,6 @@ svg {
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-
   .row:not(:first-of-type) .col-12:last-child,
   .row:not(:first-of-type) .col-12:nth-child(5),
   .row:not(:first-of-type) .col-12:nth-child(4) {
@@ -385,8 +412,8 @@ svg {
 }
 
 .play-button {
-  fill: #1ED760;
-  background-color: #1ED760;
+  fill: #1ed760;
+  background-color: #1ed760;
   border: none;
   border-radius: 50%;
   padding: 10px;
@@ -398,7 +425,7 @@ svg {
 }
 
 .play-button:hover {
-  background-color: #1FDF64;
+  background-color: #1fdf64;
   scale: 1.05;
 }
 
@@ -413,4 +440,13 @@ svg {
 
 #stop svg {
   opacity: 1;
+}
+.table .active-text {
+  color: #1ed760;
+}
+table .active-icon {
+  background-color: rgba(86, 83, 83, 0.575);
+}
+.bi-music-note-beamed {
+  fill: white;
 }

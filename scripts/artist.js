@@ -53,16 +53,16 @@ const renderSongs = async (songs) => {
     } = await iterator;
     // updatePlayerDuration("${duration}")
     containerList.innerHTML += ` 
-    <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen(); makeChange(event)')>
+    <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen()')>
     <th scope="row" class="grey row-btn">${i + 1}</th>
     <td>
     <img class="p-1" src="${
       iterator.album.cover_medium
     }" height="48" width="48" alt="">
     </td>
-    <td><span class="grey song-btn" id="title">
+    <td class="song-btn grey" id="title">
       ${iterator.title}
-    </span></td>
+   </td>
     <td><span class="grey"><a href="./album-page.html?id=${
       iterator.album.id
     }"> @ ${iterator.album.title}</a></span></td>
@@ -91,16 +91,16 @@ const renderMoreSongs = async (songs) => {
     } = await iterator;
 
     containerList.innerHTML += `
-    <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen(event);')>
+    <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen();')>
     <th scope="row" class="grey row-btn">${i + 1}</th>
     <td>
     <img class="p-1" src="${
       iterator.album.cover_medium
     }" height="48" width="48" alt="">
-    </td>
-    <td><span class="grey song-btn" id="title">
+    </td">
+    <td class="song-btn grey" id="title">
       ${iterator.title}
-    </span></td>
+   </td>
     <td><span class="grey"><a href="/album-page.html?id=${
       iterator.album.id
     }"> @ ${iterator.album.title}</a></span></td>
@@ -134,16 +134,24 @@ const makeGreen = () => {
   for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function () {
       let current = document.getElementsByClassName("active-text");
-      if (current.length > 0) {
+      let current2 = header.getElementsByClassName("active-icon");
+      if ((current2.length > 0) & (current.length > 0)) {
+        current2[0].className = current2[0].className.replace(
+          " active-icon",
+          ""
+        );
         current[0].className = current[0].className.replace(" active-text", "");
       }
+      this.parentElement.className += " active-icon";
       this.className += " active-text";
     });
   }
 };
+let track_index = 0;
 
 window.onload = () => {
   getDataSongs();
+  defaultLoad(track_index);
 };
 
 const scrollNavbar = () => {
@@ -174,7 +182,6 @@ let muteButton = document.getElementById("mute");
 let unMuteButton = document.getElementById("unmute");
 
 // Specify globally used values
-let track_index = 0;
 let isPlaying = false;
 let updateTimer;
 
@@ -193,6 +200,35 @@ let track_list = [
   },
 ];
 
+const defaultLoad = (track_index) => {
+  fetch(linksongs + id)
+    .then((dataRaw) => dataRaw.json())
+    .then((data) => {
+      const datamined = data.data;
+      console.log(datamined);
+      // Clear the previous seek timer
+      clearInterval(updateTimer);
+      resetValues();
+
+      // Load a new track
+      curr_track.src = datamined[track_index].preview;
+
+      curr_track.load();
+      updatePlayerCover(datamined[track_index].album.cover_medium);
+      updatePlayerName(datamined[track_index].title);
+      updatePlayerArtist(datamined[track_index].artist.name);
+
+      // Set an interval of 1000 milliseconds
+      // for updating the seek slider
+      updateTimer = setInterval(seekUpdate, 1000);
+
+      // Move to the next track if the current finishes playing
+      // using the 'ended' event
+      curr_track.addEventListener("ended", nextTrack);
+    });
+};
+
+defaultLoad(track_index);
 function loadTrack(song) {
   // Clear the previous seek timer
   clearInterval(updateTimer);
@@ -266,22 +302,22 @@ function pauseTrack() {
 function nextTrack() {
   // Go back to the first track if the
   // current one is the last in the track list
-  if (track_index < track_list.length - 1) track_index += 1;
-  else track_index = 0;
 
+  track_index++;
   // Load and play the new track
-  loadTrack(track_index);
+
+  defaultLoad(track_index);
+
   playTrack();
 }
 
 function prevTrack() {
   // Go back to the last track if the
   // current one is the first in the track list
-  if (track_index > 0) track_index -= 1;
-  else track_index = track_list.length - 1;
 
   // Load and play the new track
-  loadTrack(track_index);
+  track_index--;
+  defaultLoad(track_index);
   playTrack();
 }
 
@@ -349,7 +385,6 @@ function seekUpdate() {
 }
 
 // Load the first track in the tracklist
-loadTrack(track_index);
 
 function changeState() {
   let play = document.getElementById("ButtonInner-play");

@@ -27,13 +27,14 @@ const artists = [
   "tones and i",
   "Malinda",
 ];
-
+let track_index = 0;
 window.onload = async () => {
   await getAlbum();
   toggleAlbums();
   artists.forEach((artist) => {
     getAlbumId(artist);
   });
+  defaultLoad(track_index);
 };
 
 const getAlbumId = async (artist) => {
@@ -103,12 +104,12 @@ const displayAlbum = async (album) => {
         preview,
       } = await iterator;
       songTableNode.innerHTML += `
-      <tr onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}")'>
+      <tr class="table-row" onclick='loadTrack("${preview}"); updatePlayerCover("${cover_medium}"); updatePlayerName("${title}"); updatePlayerArtist("${name}"); makeGreen()'>
             <td>
                 <span class="song-number">${i + 1}</span>
                 <i class="bi bi-play-fill play-song-icon"></i>
             </td>
-            <td>${title}<br/><span><a href="./artist.html?name=${
+            <td class="song-btn">${title}<br/><span><a href="./artist.html?name=${
         song.artist.name
       }">${song.artist.name}</a></span></td>
             <td><i class="bi bi-heart"></i></td>
@@ -219,7 +220,7 @@ let muteButton = document.getElementById("mute");
 let unMuteButton = document.getElementById("unmute");
 
 // Specify globally used values
-let track_index = 0;
+
 let isPlaying = false;
 let updateTimer;
 
@@ -238,6 +239,35 @@ let track_list = [
   },
 ];
 
+const defaultLoad = (track_index) => {
+  fetch(linksongs + id)
+    .then((dataRaw) => dataRaw.json())
+    .then((data) => {
+      const datamined = data.data;
+      console.log(datamined);
+      // Clear the previous seek timer
+      clearInterval(updateTimer);
+      resetValues();
+
+      // Load a new track
+      curr_track.src = datamined[track_index].preview;
+
+      curr_track.load();
+      updatePlayerCover(datamined[track_index].album.cover_medium);
+      updatePlayerName(datamined[track_index].title);
+      updatePlayerArtist(datamined[track_index].artist.name);
+
+      // Set an interval of 1000 milliseconds
+      // for updating the seek slider
+      updateTimer = setInterval(seekUpdate, 1000);
+
+      // Move to the next track if the current finishes playing
+      // using the 'ended' event
+      curr_track.addEventListener("ended", nextTrack);
+    });
+};
+
+defaultLoad(track_index);
 function loadTrack(song) {
   // Clear the previous seek timer
   clearInterval(updateTimer);
@@ -311,22 +341,22 @@ function pauseTrack() {
 function nextTrack() {
   // Go back to the first track if the
   // current one is the last in the track list
-  if (track_index < track_list.length - 1) track_index += 1;
-  else track_index = 0;
 
+  track_index++;
   // Load and play the new track
-  loadTrack(track_index);
+
+  defaultLoad(track_index);
+
   playTrack();
 }
 
 function prevTrack() {
   // Go back to the last track if the
   // current one is the first in the track list
-  if (track_index > 0) track_index -= 1;
-  else track_index = track_list.length - 1;
 
   // Load and play the new track
-  loadTrack(track_index);
+  track_index--;
+  defaultLoad(track_index);
   playTrack();
 }
 
@@ -415,3 +445,23 @@ function changeState() {
     pauseTrack();
   }
 }
+
+const makeGreen = () => {
+  let header = document.getElementById("songTable");
+  let btns = header.getElementsByClassName("song-btn");
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      let current = document.getElementsByClassName("active-text");
+      let current2 = header.getElementsByClassName("active-icon");
+      if ((current2.length > 0) & (current.length > 0)) {
+        current2[0].className = current2[0].className.replace(
+          " active-icon",
+          ""
+        );
+        current[0].className = current[0].className.replace(" active-text", "");
+      }
+      this.parentElement.className += " active-icon";
+      this.className += " active-text";
+    });
+  }
+};

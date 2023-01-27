@@ -470,3 +470,6 @@ a.dropdown-item:hover {
 .navbar.fixed-bottom {
     border-top: 1px solid #80808057;
 }
+.set-width {
+    width: 30%;
+  }

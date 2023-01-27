@@ -15,13 +15,12 @@ window.onload = async () => {
         console.log(error)
     }
 
-}
-
 const mainFunction = async () => {
     allSongsArray = await getSongsPerArtist()
     // console.log(allSongsArray)
 
     removeDuplicates(allSongsArray)
+
 
     shuffleSongs(allSongsArray)
 
@@ -34,6 +33,7 @@ const getSongsPerArtist = async () => {
         for (let song of songs) {
             // console.log(song)
             allSongsArray.push(song)
+
 
         }
     }
@@ -116,7 +116,10 @@ const getSongs = async (query) => {
             let songs = await response.json();
             return songs.data
 
-        } else {
+
+        } 
+        else {
+
             mainFunction()
         }
     } catch (error) {
